@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реки и ГЭС</title>
+</head>
+<body>
+
+<tbody>
+<h1>Выбор реки и ГЭС</h1>
+
+    <div class="select-container">
+        <label for="river">Река:</label>
+        <select id="river" name="river">
+            <option value="">-- Выберите реку --</option>
+            <option value="Ангара">Ангара</option>
+            <option value="Зея">Зея</option>
+            <option value="Бурея">Бурея</option>
+            <option value="Колыма">Колыма</option>
+            <option value="Волга">Волга</option>
+            <option value="Кама">Кама</option>
+            <option value="Енисей">Енисей</option>
+            <option value="Обь">Обь</option>
+            <option value="Аварское_Койсу">Аварское Койсу</option>
+            <option value="Сулак">Сулак</option>
+            <option value="Вилюй">Вилюй</option>
+        </select>
+    </div>
+
+    <div class="select-container">
+        <label for="ges">ГЭС:</label>
+        <select id="ges" name="ges" disabled>
+            <option value="">-- Сначала выберите реку --</option>
+        </select>
+    </div>
+
+    <div class="col-sm-2">
+        <label class="date" for="input_date">Выберите дату запроса:</label>
+        <input
+                class="date"
+                type="date"
+                id="input_date"
+                name="date"
+                min="2013-07-01">
+        <!-- max будет установлен скриптом -->
+    </div>
+
+<td>
+    <button id='send_request' onclick='send_request()'>Запрос данный на RusHydro (за 30 дней)</button>
+</td>
+
+<br>
+
+<tr>-------------------------------------------------------------------------------------------------</tr>
+
+<div class="col-sm-4">
+    <label class="date" for="input_dateStart">Начальная дата для графика:</label>
+    <input
+            class="date"
+            type="date"
+            id="input_dateStart"
+            name="input_dateStart"
+            min="2013-07-01">
+</div>
+
+<div class="col-sm-4">
+    <label class="date" for="input_dateFinish">Конечная дата для графика:</label>
+        <input
+            class="date"
+            type="date"
+            id="input_dateFinish"
+            name="input_dateFinish"
+            min="2013-07-01">
+</div>
+
+<tr>-------------------------------------------------------------------------------------------------<br>
+</tr>
+
+<td>
+    <button id='send_requestToDB' onclick='send_requestToDB()'>Построить график в выбранном диапазоне дат</button>
+</td>
+
+<tr> <br> -------------------------------------------------------------------------------------------------<br>
+</tr>
+
+<div class="button-container">
+    <!-- Кнопка для перехода на другую страницу -->
+    <button class="nav-button" onclick="window.location.href='/'">
+        RESET
+    </button>
+
+<!--    &lt;!&ndash; Дополнительная кнопка (пример) &ndash;&gt;-->
+<!--    <button class="nav-button" onclick="window.location.href='chart'">-->
+<!--        Просмотреть chart-->
+<!--    </button>-->
+</div>
+
+<!-- Подключаем JavaScript -->
+<link rel="stylesheet" href="/css/index.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/indexScript.js"></script>
+
+</body>
+</html>
