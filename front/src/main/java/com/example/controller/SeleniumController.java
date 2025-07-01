@@ -81,7 +81,8 @@ public class SeleniumController {
 
         // Формируем URL для графика
         String chartUrl = String.format(
-                "/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
+//                "/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
+                "http://localhost:8081/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
                 URLEncoder.encode(data.getRiver(), StandardCharsets.UTF_8),
                 URLEncoder.encode(data.getGes(), StandardCharsets.UTF_8),
                 URLEncoder.encode(data.getDateStart(), StandardCharsets.UTF_8),

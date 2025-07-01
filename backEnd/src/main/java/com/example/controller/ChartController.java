@@ -9,10 +9,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.StandardCharsets;
@@ -27,6 +24,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:8080")  // ??????????????????? 01/07
 @Slf4j
 public class ChartController {
     private final DataDBRepository dataDBRepository;
@@ -38,6 +36,7 @@ public class ChartController {
     }
 
     @GetMapping(value = "/chart", produces = "text/html;charset=UTF-8")
+//    @CrossOrigin                      //(origins = "http://localhost:8080") // Укажите адрес фронтенда      // ?????????????????? 01/07
     public ResponseEntity<byte[]> testStaticAccess() {
         try {
             Resource resource = new ClassPathResource("static/html/chart.html");
@@ -50,6 +49,7 @@ public class ChartController {
             return ResponseEntity.ok()
                     .contentType(MediaType.TEXT_HTML)
                     .header("Content-Type", "text/html;charset=UTF-8")
+//                    .header("X-Served-By", "8080") // Явное указание порта в заголовке
                     .body(fileBytes);
         } catch (Exception e) {
             // Возвращаем ошибку тоже в виде байтов с UTF-8
@@ -60,19 +60,34 @@ public class ChartController {
         }
     }
 
+
+//    @GetMapping("/chart-data")
+////    @CrossOrigin     // (origins = "http://localhost:8080") // Укажите адрес фронтенда  ЧТО БЫ ГЛОБАЛЬНАЯ НАСТРОЙКА РАБОТАЛА??????
+//    @ResponseBody
+//    public ResponseEntity<?> getChartData(HttpServletRequest request) {
+
+
+
+// В МОЛОНИТЕ РАБОТАЕТ ЭТОТ КОД!!!!!!!
     @GetMapping("/chart-data")
-    @CrossOrigin(origins = "http://localhost:8080") // Укажите адрес фронтенда
+//    @CrossOrigin     // (origins = "http://localhost:8080") // Укажите адрес фронтенда  ЧТО БЫ ГЛОБАЛЬНАЯ НАСТРОЙКА РАБОТАЛА??????
     @ResponseBody
     public ResponseEntity<?> getChartData(HttpServletRequest request) {
 
         // Логирование входящего запроса
         log.info("Incoming request from: {}:{}", request.getRemoteAddr(), request.getRemotePort());
 
+//        // Получаем параметры из сессии
+//        String river = (String) request.getSession().getAttribute("river");
+//        String ges = (String) request.getSession().getAttribute("ges");
+//        String dateStartStr = (String) request.getSession().getAttribute("dateStart");
+//        String dateFinishStr = (String) request.getSession().getAttribute("dateFinish");
+
         // Получаем параметры из сессии
-        String river = (String) request.getSession().getAttribute("river");
-        String ges = (String) request.getSession().getAttribute("ges");
-        String dateStartStr = (String) request.getSession().getAttribute("dateStart");
-        String dateFinishStr = (String) request.getSession().getAttribute("dateFinish");
+        String river = request.getParameter("river");
+        String ges = request.getParameter("ges");
+        String dateStartStr = request.getParameter("dateStart");
+        String dateFinishStr = request.getParameter("dateFinish");
 
         // Логирование параметров
         log.info("Request params - river: {}, ges: {}, dates: {} to {}",
@@ -116,9 +131,13 @@ public class ChartController {
 //                    .body(chartData);
 
             return ResponseEntity.ok()
-                    .header("X-Served-By", "8080") // Явное указание порта в заголовке
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(chartData);
+
+//            return ResponseEntity.ok()
+//                    .header("X-Served-By", "8080") // Явное указание порта в заголовке
+//                    .contentType(MediaType.APPLICATION_JSON)
+//                    .body(chartData);
 
         } catch (ParseException e) {
             return ResponseEntity.badRequest()

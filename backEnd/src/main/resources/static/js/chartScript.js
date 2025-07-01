@@ -82,7 +82,8 @@ async function fetchData() {
 
         // const response = await fetch(`/chart-data?${queryParams.toString()}`, {
         // Изменяем URL на полный с портом 8080
-        const response = await fetch(`http://localhost:8080/chart-data?${queryParams.toString()}`, {
+        // const response = await fetch(`http://localhost:8080/chart-data?${queryParams.toString()}`, {
+        const response = await fetch(`/chart-data?${queryParams.toString()}`, {
             headers: {
                 'Accept': 'application/json'
             }

@@ -151,9 +151,10 @@ function send_requestToDB() {
         });
 }
 
-document.getElementById('input_date').max = new Date().toISOString().split('T')[0];
-document.getElementById('input_dateStart').max = new Date().toISOString().split('T')[0];
-document.getElementById('input_dateFinish').max = new Date().toISOString().split('T')[0];
+// 01/07 ????????????????????????
+// document.getElementById('input_date').max = new Date().toISOString().split('T')[0];
+// document.getElementById('input_dateStart').max = new Date().toISOString().split('T')[0];
+// document.getElementById('input_dateFinish').max = new Date().toISOString().split('T')[0];
 
 // function send_requestToDB() {
 //
