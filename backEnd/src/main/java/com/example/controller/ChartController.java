@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ import java.util.stream.Collectors;
 @RestController
 //@CrossOrigin(origins = "http://localhost:8080")  // ??????????????????? 01/07
 @Slf4j
+@CrossOrigin            // ??????????????????????????????????????????
 public class ChartController {
     private final DataDBRepository dataDBRepository;
     private final ObjectMapper objectMapper;
@@ -67,46 +69,19 @@ public class ChartController {
 //    public ResponseEntity<?> getChartData(HttpServletRequest request) {
 
 
-
-// В МОЛОНИТЕ РАБОТАЕТ ЭТОТ КОД!!!!!!!
     @GetMapping("/chart-data")
-//    @CrossOrigin     // (origins = "http://localhost:8080") // Укажите адрес фронтенда  ЧТО БЫ ГЛОБАЛЬНАЯ НАСТРОЙКА РАБОТАЛА??????
     @ResponseBody
-    public ResponseEntity<?> getChartData(HttpServletRequest request) {
+    public ResponseEntity<?> getChartData(
+            @RequestParam String river,
+            @RequestParam String ges,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateStart,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFinish) {
 
-        // Логирование входящего запроса
-        log.info("Incoming request from: {}:{}", request.getRemoteAddr(), request.getRemotePort());
-
-//        // Получаем параметры из сессии
-//        String river = (String) request.getSession().getAttribute("river");
-//        String ges = (String) request.getSession().getAttribute("ges");
-//        String dateStartStr = (String) request.getSession().getAttribute("dateStart");
-//        String dateFinishStr = (String) request.getSession().getAttribute("dateFinish");
-
-        // Получаем параметры из сессии
-        String river = request.getParameter("river");
-        String ges = request.getParameter("ges");
-        String dateStartStr = request.getParameter("dateStart");
-        String dateFinishStr = request.getParameter("dateFinish");
-
-        // Логирование параметров
-        log.info("Request params - river: {}, ges: {}, dates: {} to {}",
-                river, ges, dateStartStr, dateFinishStr);
+        log.info("Request for {} - {}, from {} to {}", river, ges, dateStart, dateFinish);
 
         try {
-            // Конвертируем строки в java.util.Date
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            sdf.setLenient(false);
-            Date dateStart = sdf.parse(dateStartStr);
-            Date dateFinish = sdf.parse(dateFinishStr);
-
-            // Получаем данные из БД
             List<Data> dataList = dataDBRepository.findByRiverAndGesAndDateBetween(
-                    river,
-                    ges,
-                    dateStart,
-                    dateFinish
-            );
+                    river, ges, dateStart, dateFinish);
 
             if (dataList == null || dataList.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -115,40 +90,111 @@ public class ChartController {
                                 "parameters", Map.of(
                                         "river", river,
                                         "ges", ges,
-                                        "dateStart", dateStartStr,
-                                        "dateFinish", dateFinishStr
+                                        "dateStart", dateStart,
+                                        "dateFinish", dateFinish
                                 )
                         ));
             }
 
-            // Создаем DTO с java.util.Date (без конвертации в LocalDate)
             List<ChartDataDto> chartData = dataList.stream()
                     .map(data -> new ChartDataDto(data.getDate(), data.getLevel()))
                     .collect(Collectors.toList());
 
-//            return ResponseEntity.ok()
-//                    .contentType(MediaType.APPLICATION_JSON)
-//                    .body(chartData);
 
             return ResponseEntity.ok()
+                    .header("Access-Control-Allow-Origin", "http://localhost:8080")
+                    .header("Access-Control-Allow-Credentials", "true")
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(chartData);
 
-//            return ResponseEntity.ok()
-//                    .header("X-Served-By", "8080") // Явное указание порта в заголовке
-//                    .contentType(MediaType.APPLICATION_JSON)
-//                    .body(chartData);
-
-        } catch (ParseException e) {
-            return ResponseEntity.badRequest()
-                    .body(Map.of("error", "Неверный формат даты. Используйте YYYY-MM-DD"));
         } catch (Exception e) {
-            log.error("Ошибка при получении данных для {}/{}, период {} - {}",
-                    river, ges, dateStartStr, dateFinishStr, e);
+            log.error("Ошибка при обработке запроса", e);
             return ResponseEntity.internalServerError()
                     .body(Map.of("error", "Внутренняя ошибка сервера"));
         }
     }
+
+
+
+//
+//
+//// В МОЛОНИТЕ РАБОТАЕТ ЭТОТ КОД!!!!!!!
+//    @GetMapping("/chart-data")
+////    @CrossOrigin     // (origins = "http://localhost:8080") // Укажите адрес фронтенда  ЧТО БЫ ГЛОБАЛЬНАЯ НАСТРОЙКА РАБОТАЛА??????
+//    @ResponseBody
+//    public ResponseEntity<?> getChartData(HttpServletRequest request) {
+//
+//        // Логирование входящего запроса
+//        log.info("Incoming request from: {}:{}", request.getRemoteAddr(), request.getRemotePort());
+//
+////        // Получаем параметры из сессии при МОНОЛИТЕ!!!!
+////        String river = (String) request.getSession().getAttribute("river");
+////        String ges = (String) request.getSession().getAttribute("ges");
+////        String dateStartStr = (String) request.getSession().getAttribute("dateStart");
+////        String dateFinishStr = (String) request.getSession().getAttribute("dateFinish");
+//
+//        // Получаем параметры из сессии
+//        String river = request.getParameter("river");
+//        String ges = request.getParameter("ges");
+//        String dateStartStr = request.getParameter("dateStart");
+//        String dateFinishStr = request.getParameter("dateFinish");
+//
+//        // Логирование параметров
+//        log.info("Request params - river: {}, ges: {}, dates: {} to {}",
+//                river, ges, dateStartStr, dateFinishStr);
+//
+//        try {
+//            // Конвертируем строки в java.util.Date
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            sdf.setLenient(false);
+//            Date dateStart = sdf.parse(dateStartStr);
+//            Date dateFinish = sdf.parse(dateFinishStr);
+//
+//            // Получаем данные из БД
+//            List<Data> dataList = dataDBRepository.findByRiverAndGesAndDateBetween(
+//                    river,
+//                    ges,
+//                    dateStart,
+//                    dateFinish
+//            );
+//
+//            if (dataList == null || dataList.isEmpty()) {
+//                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+//                        .body(Map.of(
+//                                "error", "Данные не найдены",
+//                                "parameters", Map.of(
+//                                        "river", river,
+//                                        "ges", ges,
+//                                        "dateStart", dateStartStr,
+//                                        "dateFinish", dateFinishStr
+//                                )
+//                        ));
+//            }
+//
+//            // Создаем DTO с java.util.Date (без конвертации в LocalDate)
+//            List<ChartDataDto> chartData = dataList.stream()
+//                    .map(data -> new ChartDataDto(data.getDate(), data.getLevel()))
+//                    .collect(Collectors.toList());
+//
+////            return ResponseEntity.ok()
+////                    .contentType(MediaType.APPLICATION_JSON)
+////                    .body(chartData);
+//
+//            return ResponseEntity.ok()
+//                    .header("X-Served-By", "8080") // Явное указание порта в заголовке
+//                    .contentType(MediaType.APPLICATION_JSON)
+//                    .body(chartData);
+//
+//        } catch (ParseException e) {
+//            return ResponseEntity.badRequest()
+//                    .body(Map.of("error", "Неверный формат даты. Используйте YYYY-MM-DD"));
+//        } catch (Exception e) {
+//            log.error("Ошибка при получении данных для {}/{}, период {} - {}",
+//                    river, ges, dateStartStr, dateFinishStr, e);
+//            return ResponseEntity.internalServerError()
+//                    .body(Map.of("error", "Внутренняя ошибка сервера"));
+//        }
+//    }
 
 
 }

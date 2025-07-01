@@ -67,6 +67,50 @@ function generateDateRange(startDate, endDate) {
     return dates;
 }
 
+// РАБОТАЕТ ПРИ МОНОЛИТЕ!!!!
+// async function fetchData() {
+//     try {
+//         updateStatus('Загрузка данных с сервера...');
+//
+//         const params = getUrlParams();
+//         const queryParams = new URLSearchParams();
+//
+//         if (params.river) queryParams.append('river', params.river);
+//         if (params.ges) queryParams.append('ges', params.ges);
+//         if (params.dateStart) queryParams.append('dateStart', params.dateStart);
+//         if (params.dateFinish) queryParams.append('dateFinish', params.dateFinish);
+//
+//         const response = await fetch(`http://localhost:8081/chart-data?${queryParams.toString()}`, {
+//             method: 'GET',
+//             credentials: 'include', // Важно для работы с куками и сессией
+//             headers: {
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+//
+//         if (!response.ok) {
+//             throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
+//         }
+//
+//         const data = await response.json();
+//
+//         if (!Array.isArray(data)) {
+//             throw new Error('Некорректный формат данных');
+//         }
+//
+//         updateStatus(`Загружено ${data.length} записей`);
+//         renderChart(data);
+//
+//     } catch (error) {
+//         console.error('Ошибка:', error);
+//         updateStatus('Ошибка при загрузке данных', true);
+//         showError(error.message);
+//     }
+// }
+
+
+
 // Загрузка данных с сервера
 async function fetchData() {
     try {
@@ -80,11 +124,22 @@ async function fetchData() {
         if (params.dateStart) queryParams.append('dateStart', params.dateStart);
         if (params.dateFinish) queryParams.append('dateFinish', params.dateFinish);
 
-        const response = await fetch(`/chart-data?${queryParams.toString()}`, {
+        const response = await fetch(`http://localhost:8081/chart-data?${queryParams.toString()}`, {
+            method: 'GET',
+            credentials: 'include', // Важно для работы с куками и сессией
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                // 'Content-Type': 'application/json'
             }
         });
+
+
+
+        // const response = await fetch(`/chart-data?${queryParams.toString()}`, {
+        //     headers: {
+        //         'Accept': 'application/json'
+        //     }
+        // });
 
         if (!response.ok) {
             throw new Error(`Ошибка сервера: ${response.status} ${response.statusText}`);
