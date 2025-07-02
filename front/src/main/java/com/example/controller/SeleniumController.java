@@ -58,15 +58,15 @@ public class SeleniumController {
 //
 //        return ResponseEntity.ok("Данные получены");
 //    }
-
-    private String getMonthName(String monthNumber) {
-        String[] months = {
-                "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
-        };
-        int month = Integer.parseInt(monthNumber);
-        return months[month - 1];
-    }
+//
+//    private String getMonthName(String monthNumber) {
+//        String[] months = {
+//                "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+//                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+//        };
+//        int month = Integer.parseInt(monthNumber);
+//        return months[month - 1];
+//    }
 
     @PostMapping("/api/requestToBD")
     public ResponseEntity<Map<String, String>> handlePostRequest(

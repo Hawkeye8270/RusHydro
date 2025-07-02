@@ -1,7 +1,7 @@
 package com.example.controller;
 
-public class ResponseDto {
-
-
-
-}
+//public class ResponseDto {
+//
+//
+//
+//}
