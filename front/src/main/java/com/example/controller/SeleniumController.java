@@ -67,31 +67,31 @@ public class SeleniumController {
 //        int month = Integer.parseInt(monthNumber);
 //        return months[month - 1];
 //    }
-
-    @PostMapping("/api/requestToBD")
-    public ResponseEntity<Map<String, String>> handlePostRequest(
-            @RequestBody RequestDataToDB data,
-            HttpServletRequest request
-    ) {
-        // Сохраняем параметры в сессии (если нужно)
-        request.getSession().setAttribute("river", data.getRiver());
-        request.getSession().setAttribute("ges", data.getGes());
-        request.getSession().setAttribute("dateStart", data.getDateStart());
-        request.getSession().setAttribute("dateFinish", data.getDateFinish());
-
-        // Формируем URL для графика
-        String chartUrl = String.format(
-//                "/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
-                "http://localhost:8081/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
-                URLEncoder.encode(data.getRiver(), StandardCharsets.UTF_8),
-                URLEncoder.encode(data.getGes(), StandardCharsets.UTF_8),
-                URLEncoder.encode(data.getDateStart(), StandardCharsets.UTF_8),
-                URLEncoder.encode(data.getDateFinish(), StandardCharsets.UTF_8)
-        );
-
-        // Возвращаем JSON с URL для перехода
-        return ResponseEntity.ok(Map.of("redirectUrl", chartUrl));
-    }
+//
+//    @PostMapping("/api/requestToBD")
+//    public ResponseEntity<Map<String, String>> handlePostRequest(
+//            @RequestBody RequestDataToDB data,
+//            HttpServletRequest request
+//    ) {
+//        // Сохраняем параметры в сессии (если нужно)
+//        request.getSession().setAttribute("river", data.getRiver());
+//        request.getSession().setAttribute("ges", data.getGes());
+//        request.getSession().setAttribute("dateStart", data.getDateStart());
+//        request.getSession().setAttribute("dateFinish", data.getDateFinish());
+//
+//        // Формируем URL для графика
+//        String chartUrl = String.format(
+////                "/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
+//                "http://localhost:8081/chart?river=%s&ges=%s&dateStart=%s&dateFinish=%s",
+//                URLEncoder.encode(data.getRiver(), StandardCharsets.UTF_8),
+//                URLEncoder.encode(data.getGes(), StandardCharsets.UTF_8),
+//                URLEncoder.encode(data.getDateStart(), StandardCharsets.UTF_8),
+//                URLEncoder.encode(data.getDateFinish(), StandardCharsets.UTF_8)
+//        );
+//
+//        // Возвращаем JSON с URL для перехода
+//        return ResponseEntity.ok(Map.of("redirectUrl", chartUrl));
+//    }
 
 
 }
