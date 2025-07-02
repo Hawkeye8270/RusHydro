@@ -35,14 +35,14 @@ public class SeleniumController {
 //        this.dataDBRepository = dataDBRepository;
 //        this.objectMapper = objectMapper;
 //    }
-
-    @GetMapping("/")
-    public ResponseEntity<Resource> home() {
-        return ResponseEntity.ok()
-                .contentType(MediaType.TEXT_HTML)
-                .body(new ClassPathResource("static/html/index.html"));
-    }
 //
+//    @GetMapping("/")
+//    public ResponseEntity<Resource> home() {
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.TEXT_HTML)
+//                .body(new ClassPathResource("static/html/index.html"));
+//    }
+////
 //    @PostMapping("/api/request")
 //    public ResponseEntity<String> handlePostRequest(@RequestBody RequestData data) {
 //        logger.info("=== POST запрос получен ===");
