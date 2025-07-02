@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>net.javaguides</groupId>
-    <artifactId>department-service</artifactId>
+    <artifactId>microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>department-service</name>
-    <description>department-service</description>
+    <name>microservice</name>
+    <description>microservice</description>
     <packaging>pom</packaging>
 
             <properties>
