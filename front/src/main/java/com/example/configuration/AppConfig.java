@@ -36,16 +36,31 @@ public class AppConfig {
 //        return properties;
 //    }
 
-    @Bean
-    public DataSource dataSource() {
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDriverClassName("com.p6spy.engine.spy.P6SpyDriver");
-        dataSource.setJdbcUrl("jdbc:p6spy:postgresql://localhost:5432/rushydro");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("123");
-        dataSource.setMaximumPoolSize(10);
-        return dataSource;
-    }
+    //  РАБОТАЕТ БЕЗ DOCKER
+//    @Bean
+//    public DataSource dataSource() {
+//        HikariDataSource dataSource = new HikariDataSource();
+//        dataSource.setDriverClassName("com.p6spy.engine.spy.P6SpyDriver");
+////        dataSource.setJdbcUrl("jdbc:p6spy:postgresql://localhost:5432/rushydro");
+//        dataSource.setJdbcUrl("jdbc:p6spy:postgresql://db:5432/rushydro");
+//        dataSource.setUsername("postgres");
+//        dataSource.setPassword("123");
+//        dataSource.setMaximumPoolSize(10);
+//        return dataSource;
+//    }
+
+//    @Bean
+//    public DataSource dataSource() {
+//        HikariDataSource dataSource = new HikariDataSource();
+//        dataSource.setDriverClassName("com.p6spy.engine.spy.P6SpyDriver");
+////        dataSource.setJdbcUrl("jdbc:p6spy:postgresql://localhost:5432/rushydro");
+//        dataSource.setJdbcUrl("jdbc:p6spy:postgresql://db:5432/rushydro");
+////        dataSource.setJdbcUrl("jdbc:p6spy:postgresql://my-postgres:5432/rushydro");
+//        dataSource.setUsername("postgres");
+//        dataSource.setPassword("123");
+//        dataSource.setMaximumPoolSize(10);
+//        return dataSource;
+//    }
 
 
 }
