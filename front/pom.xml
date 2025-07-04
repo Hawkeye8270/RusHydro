@@ -6,7 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>front</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1-SNAPSHOT</version>
     <name>front-service</name>
 
     <parent>

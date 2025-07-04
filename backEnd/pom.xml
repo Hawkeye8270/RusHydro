@@ -6,7 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>backEnd</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1-SNAPSHOT</version>
     <name>backEnd-service</name>
 
     <properties>
@@ -59,7 +59,8 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.10</version>
+<!--            <version>42.2.10</version>-->
+            <version>42.6.0</version>
         </dependency>
 
         <!-- Tomcat -->
