@@ -19,9 +19,10 @@ services:
       retries: 5
 
   backend:
-    build: .
+    build:
+      context: ./backEnd  # Путь к папке с Dockerfile бэкенда
     ports:
-      - "8081:8081"
+      - "8081:8081"  # Пробрасываем порт бэкенда
     depends_on:
       db:
         condition: service_healthy
@@ -29,6 +30,17 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:p6spy:postgresql://db:5432/rushydro"
       SPRING_DATASOURCE_USERNAME: "postgres"
       SPRING_DATASOURCE_PASSWORD: "123"  # Всегда в кавычках!
+
+  frontend:
+    build:
+      context: ./front  # Путь к папке с Dockerfile фронтенда
+#      dockerfile: Dockerfile  # Или укажите другой файл, если нужно
+    container_name: front
+    ports:
+      - "8080:8080"  # Пробрасываем порт фронтенда
+    depends_on:
+      - backend  # Фронтенд запустится только после бэкенда
+    restart: unless-stopped
 
 volumes:
   postgres_data:
