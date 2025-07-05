@@ -53,7 +53,7 @@ public class AutoStartCrowlingService  {
             String month = getRussianMonthName(date.getMonth());
             String day = String.valueOf(date.getDayOfMonth());
 
-            seleniumDS.start(false);
+            seleniumDS.start(true);
             seleniumDS.openPage(URL_TEST);
             closeCookie();
             setRiver(river);
