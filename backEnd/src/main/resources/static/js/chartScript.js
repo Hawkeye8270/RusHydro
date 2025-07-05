@@ -80,12 +80,19 @@ async function fetchData() {
         if (params.dateStart) queryParams.append('dateStart', params.dateStart);
         if (params.dateFinish) queryParams.append('dateFinish', params.dateFinish);
 
+        // РАБОТАЕТ БЕЗ DOCKER
         // const response = await fetch(`/chart-data?${queryParams.toString()}`, {
-        // Изменяем URL на полный с портом 8080
-        // const response = await fetch(`http://localhost:8080/chart-data?${queryParams.toString()}`, {
-        const response = await fetch(`/chart-data?${queryParams.toString()}`, {
+        //     headers: {
+        //         'Accept': 'application/json'
+        //     }
+        // });
+
+        // Явно укажите полный URL (для Docker используйте имя сервиса)
+        const response = await fetch(`http://localhost:8081/chart-data?${queryParams.toString()}`, {
+            mode: 'cors', // Явно указываем режим CORS
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             }
         });
 
@@ -104,7 +111,7 @@ async function fetchData() {
 
     } catch (error) {
         console.error('Ошибка:', error);
-        updateStatus('Ошибка при загрузке данных', true);
+        updateStatus('Ошибка при загрузке данных22', true);
         showError(error.message);
     }
 }
