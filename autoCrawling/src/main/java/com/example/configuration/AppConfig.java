@@ -1,4 +1,4 @@
-package com.example.demo.configuration;
+package com.example.configuration;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.hibernate.cfg.Environment;

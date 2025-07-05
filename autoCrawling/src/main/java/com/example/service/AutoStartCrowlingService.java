@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package com.example.service;
 
-import com.example.demo.repository.DataDBRepository;
-import com.example.demo.repository.DataRepository;
+import com.example.repository.DataDBRepository;
+import com.example.repository.DataRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

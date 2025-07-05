@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package com.example.service;
 
 
-import com.example.demo.configuration.ChromeConfig;
+import com.example.configuration.ChromeConfig;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

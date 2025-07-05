@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.controller;
 //
 //import com.example.demo.entity.Data;
 //import com.example.demo.repository.DataDBRepository;

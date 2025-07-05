@@ -1,7 +1,7 @@
-2025-07-02 16:05:25.497  INFO 21108 --- [main] com.example.demo.AppMVC                  : Starting AppMVC using Java 21.0.6 on DESKTOP-03IP502 with PID 21108 (D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3)
-2025-07-02 16:05:25.501 DEBUG 21108 --- [main] com.example.demo.AppMVC                  : Running with Spring Boot v2.7.5, Spring v5.3.23
-2025-07-02 16:05:25.502  INFO 21108 --- [main] com.example.demo.AppMVC                  : No active profile set, falling back to 1 default profile: "default"
-2025-07-02 16:05:25.502 DEBUG 21108 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.demo.AppMVC
+2025-07-02 16:05:25.497  INFO 21108 --- [main] com.example.AppMVC                  : Starting AppMVC using Java 21.0.6 on DESKTOP-03IP502 with PID 21108 (D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3)
+2025-07-02 16:05:25.501 DEBUG 21108 --- [main] com.example.AppMVC                  : Running with Spring Boot v2.7.5, Spring v5.3.23
+2025-07-02 16:05:25.502  INFO 21108 --- [main] com.example.AppMVC                  : No active profile set, falling back to 1 default profile: "default"
+2025-07-02 16:05:25.502 DEBUG 21108 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.AppMVC
 2025-07-02 16:05:25.540 DEBUG 21108 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2da59753
 2025-07-02 16:05:25.548 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
 2025-07-02 16:05:25.555 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
@@ -150,7 +150,7 @@
 2025-07-02 16:05:27.441 DEBUG 21108 --- [main] .c.JpaMetamodelMappingContextFactoryBean : Finished initializing JpaMetamodelMappingContext!
 2025-07-02 16:05:27.451 DEBUG 21108 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 16:05:27.474 DEBUG 21108 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2025-07-02 16:05:27.494 DEBUG 21108 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.example.demo.repository.DataDBRepository…
+2025-07-02 16:05:27.494 DEBUG 21108 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for repository.com.example.DataDBRepository…
 2025-07-02 16:05:27.504 DEBUG 21108 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 16:05:27.545 DEBUG 21108 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Looking up named query Data.findByGes
 2025-07-02 16:05:27.546 DEBUG 21108 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Did not find named query Data.findByGes
@@ -174,7 +174,7 @@
 2025-07-02 16:05:27.599 DEBUG 21108 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 16:05:27.654 DEBUG 21108 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Did not find named query Data.findDistinctGes.count
 2025-07-02 16:05:27.654 DEBUG 21108 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2025-07-02 16:05:27.658 DEBUG 21108 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.example.demo.repository.DataDBRepository.
+2025-07-02 16:05:27.658 DEBUG 21108 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for repository.com.example.DataDBRepository.
 2025-07-02 16:05:27.660 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jacksonObjectMapper'
 2025-07-02 16:05:27.660 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration'
 2025-07-02 16:05:27.661 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration'
@@ -312,7 +312,7 @@ javax.validation.NoProviderFoundException: Unable to create a Configuration, bec
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.5.jar:2.7.5]
-	at com.example.demo.AppMVC.main(AppMVC.java:17) ~[classes/:na]
+	at com.example.AppMVC.main(AppMVC.java:17) ~[classes/:na]
 
 2025-07-02 16:05:28.400 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcContentNegotiationManager'
 2025-07-02 16:05:28.400 DEBUG 21108 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcConversionService'
@@ -1708,7 +1708,7 @@ Unconditional classes:
 
 
 2025-07-02 16:05:28.570 DEBUG 21108 --- [main] ySourcesPropertyResolver$DefaultResolver : Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
-2025-07-02 16:05:28.571  INFO 21108 --- [main] com.example.demo.AppMVC                  : Started AppMVC in 3.351 seconds (JVM running for 3.838)
+2025-07-02 16:05:28.571  INFO 21108 --- [main] com.example.AppMVC                  : Started AppMVC in 3.351 seconds (JVM running for 3.838)
 2025-07-02 16:05:28.571 DEBUG 21108 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2025-07-02 16:05:28.572 DEBUG 21108 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
 2025-07-02 16:06:08.486  INFO 21108 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
@@ -1721,7 +1721,7 @@ Unconditional classes:
 2025-07-02 16:06:08.487 DEBUG 21108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
 2025-07-02 16:06:08.487  INFO 21108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
 2025-07-02 16:06:08.492 DEBUG 21108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 16:06:08.494 DEBUG 21108 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 16:06:08.494 DEBUG 21108 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 16:06:08.495 DEBUG 21108 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:06:08.506 DEBUG 21108 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 16:06:08.506 DEBUG 21108 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -1738,9 +1738,9 @@ Unconditional classes:
 2025-07-02 16:06:09.696 DEBUG 21108 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:06:09.696 DEBUG 21108 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
 2025-07-02 16:06:23.373 DEBUG 21108 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/request", parameters={}
-2025-07-02 16:06:23.374 DEBUG 21108 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#handlePostRequest(RequestData)
+2025-07-02 16:06:23.374 DEBUG 21108 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#handlePostRequest(RequestData)
 2025-07-02 16:06:23.374 DEBUG 21108 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2025-07-02 16:06:23.409 DEBUG 21108 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.demo.controller.RequestData@2bb4ac7f]
+2025-07-02 16:06:23.409 DEBUG 21108 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [controller.com.example.RequestData@2bb4ac7f]
 2025-07-02 16:06:23.413  INFO 21108 --- [http-nio-8080-exec-2] c.e.demo.controller.SeleniumController   : === POST запрос получен ===
 2025-07-02 16:06:23.413  INFO 21108 --- [http-nio-8080-exec-2] c.e.demo.controller.SeleniumController   : Река: Волга
 2025-07-02 16:06:23.413  INFO 21108 --- [http-nio-8080-exec-2] c.e.demo.controller.SeleniumController   : ГЭС: Рыбинская
@@ -1775,7 +1775,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 16:06:30.026 DEBUG 21108 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:06:30.026 DEBUG 21108 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2025-07-02 16:07:00.240 DEBUG 21108 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 16:07:00.240 DEBUG 21108 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 16:07:00.240 DEBUG 21108 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 16:07:00.240 DEBUG 21108 --- [http-nio-8080-exec-9] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:07:00.240 DEBUG 21108 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 16:07:00.240 DEBUG 21108 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -1792,9 +1792,9 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 16:07:48.770 DEBUG 21108 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:07:48.771 DEBUG 21108 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
 2025-07-02 16:07:58.784 DEBUG 21108 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/request", parameters={}
-2025-07-02 16:07:58.784 DEBUG 21108 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#handlePostRequest(RequestData)
+2025-07-02 16:07:58.784 DEBUG 21108 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#handlePostRequest(RequestData)
 2025-07-02 16:07:58.784 DEBUG 21108 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2025-07-02 16:07:58.785 DEBUG 21108 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.demo.controller.RequestData@2f072ccc]
+2025-07-02 16:07:58.785 DEBUG 21108 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [controller.com.example.RequestData@2f072ccc]
 2025-07-02 16:07:58.785  INFO 21108 --- [http-nio-8080-exec-6] c.e.demo.controller.SeleniumController   : === POST запрос получен ===
 2025-07-02 16:07:58.785  INFO 21108 --- [http-nio-8080-exec-6] c.e.demo.controller.SeleniumController   : Река: Колыма
 2025-07-02 16:07:58.785  INFO 21108 --- [http-nio-8080-exec-6] c.e.demo.controller.SeleniumController   : ГЭС: Колымская
@@ -1829,7 +1829,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 16:08:04.664 DEBUG 21108 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:08:04.664 DEBUG 21108 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2025-07-02 16:08:17.718 DEBUG 21108 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 16:08:17.718 DEBUG 21108 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 16:08:17.718 DEBUG 21108 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 16:08:17.718 DEBUG 21108 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:08:17.719 DEBUG 21108 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 16:08:17.719 DEBUG 21108 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -1846,9 +1846,9 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 16:08:17.859 DEBUG 21108 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:08:17.859 DEBUG 21108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.apache.catalina.connector.ClientAbortException: java.io.IOException: Программа на вашем хост-компьютере разорвала установленное подключение
 2025-07-02 16:08:37.939 DEBUG 21108 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/request", parameters={}
-2025-07-02 16:08:37.940 DEBUG 21108 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#handlePostRequest(RequestData)
+2025-07-02 16:08:37.940 DEBUG 21108 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#handlePostRequest(RequestData)
 2025-07-02 16:08:37.940 DEBUG 21108 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2025-07-02 16:08:37.940 DEBUG 21108 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.demo.controller.RequestData@223ecee4]
+2025-07-02 16:08:37.940 DEBUG 21108 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [controller.com.example.RequestData@223ecee4]
 2025-07-02 16:08:37.941  INFO 21108 --- [http-nio-8080-exec-2] c.e.demo.controller.SeleniumController   : === POST запрос получен ===
 2025-07-02 16:08:37.941  INFO 21108 --- [http-nio-8080-exec-2] c.e.demo.controller.SeleniumController   : Река: Волга
 2025-07-02 16:08:37.941  INFO 21108 --- [http-nio-8080-exec-2] c.e.demo.controller.SeleniumController   : ГЭС: Рыбинская
@@ -1883,7 +1883,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 16:08:43.905 DEBUG 21108 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:08:43.905 DEBUG 21108 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2025-07-02 16:09:13.939 DEBUG 21108 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 16:09:13.939 DEBUG 21108 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 16:09:13.939 DEBUG 21108 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 16:09:13.939 DEBUG 21108 --- [http-nio-8080-exec-9] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:09:13.940 DEBUG 21108 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 16:09:13.940 DEBUG 21108 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -1904,10 +1904,10 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 16:09:13.995 DEBUG 21108 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:09:13.995 DEBUG 21108 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 16:09:13.995 DEBUG 21108 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
-2025-07-02 21:26:40.505  INFO 16816 --- [main] com.example.demo.AppMVC                  : Starting AppMVC using Java 21.0.6 on DESKTOP-03IP502 with PID 16816 (D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3)
-2025-07-02 21:26:40.507 DEBUG 16816 --- [main] com.example.demo.AppMVC                  : Running with Spring Boot v2.7.5, Spring v5.3.23
-2025-07-02 21:26:40.507  INFO 16816 --- [main] com.example.demo.AppMVC                  : No active profile set, falling back to 1 default profile: "default"
-2025-07-02 21:26:40.508 DEBUG 16816 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.demo.AppMVC
+2025-07-02 21:26:40.505  INFO 16816 --- [main] com.example.AppMVC                  : Starting AppMVC using Java 21.0.6 on DESKTOP-03IP502 with PID 16816 (D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3)
+2025-07-02 21:26:40.507 DEBUG 16816 --- [main] com.example.AppMVC                  : Running with Spring Boot v2.7.5, Spring v5.3.23
+2025-07-02 21:26:40.507  INFO 16816 --- [main] com.example.AppMVC                  : No active profile set, falling back to 1 default profile: "default"
+2025-07-02 21:26:40.508 DEBUG 16816 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.AppMVC
 2025-07-02 21:26:40.561 DEBUG 16816 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2da59753
 2025-07-02 21:26:40.583 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
 2025-07-02 21:26:40.594 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
@@ -2056,7 +2056,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 21:26:43.254 DEBUG 16816 --- [main] .c.JpaMetamodelMappingContextFactoryBean : Finished initializing JpaMetamodelMappingContext!
 2025-07-02 21:26:43.269 DEBUG 16816 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 21:26:43.302 DEBUG 16816 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2025-07-02 21:26:43.332 DEBUG 16816 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.example.demo.repository.DataDBRepository…
+2025-07-02 21:26:43.332 DEBUG 16816 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for repository.com.example.DataDBRepository…
 2025-07-02 21:26:43.345 DEBUG 16816 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 21:26:43.396 DEBUG 16816 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Looking up named query Data.findByGes
 2025-07-02 21:26:43.399 DEBUG 16816 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Did not find named query Data.findByGes
@@ -2080,7 +2080,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 21:26:43.455 DEBUG 16816 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 21:26:43.529 DEBUG 16816 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Did not find named query Data.findDistinctGes.count
 2025-07-02 21:26:43.529 DEBUG 16816 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2025-07-02 21:26:43.532 DEBUG 16816 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.example.demo.repository.DataDBRepository.
+2025-07-02 21:26:43.532 DEBUG 16816 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for repository.com.example.DataDBRepository.
 2025-07-02 21:26:43.535 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jacksonObjectMapper'
 2025-07-02 21:26:43.535 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration'
 2025-07-02 21:26:43.536 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration'
@@ -2218,7 +2218,7 @@ javax.validation.NoProviderFoundException: Unable to create a Configuration, bec
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.5.jar:2.7.5]
-	at com.example.demo.AppMVC.main(AppMVC.java:17) ~[classes/:na]
+	at com.example.AppMVC.main(AppMVC.java:17) ~[classes/:na]
 
 2025-07-02 21:26:44.051 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcContentNegotiationManager'
 2025-07-02 21:26:44.051 DEBUG 16816 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcConversionService'
@@ -3614,7 +3614,7 @@ Unconditional classes:
 
 
 2025-07-02 21:26:44.285 DEBUG 16816 --- [main] ySourcesPropertyResolver$DefaultResolver : Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
-2025-07-02 21:26:44.286  INFO 16816 --- [main] com.example.demo.AppMVC                  : Started AppMVC in 4.209 seconds (JVM running for 4.948)
+2025-07-02 21:26:44.286  INFO 16816 --- [main] com.example.AppMVC                  : Started AppMVC in 4.209 seconds (JVM running for 4.948)
 2025-07-02 21:26:44.287 DEBUG 16816 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2025-07-02 21:26:44.288 DEBUG 16816 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
 2025-07-02 21:26:56.066  INFO 16816 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
@@ -3627,7 +3627,7 @@ Unconditional classes:
 2025-07-02 21:26:56.067 DEBUG 16816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
 2025-07-02 21:26:56.067  INFO 16816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-07-02 21:26:56.072 DEBUG 16816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 21:26:56.074 DEBUG 16816 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 21:26:56.074 DEBUG 16816 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 21:26:56.075 DEBUG 16816 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 21:26:56.091 DEBUG 16816 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 21:26:56.091 DEBUG 16816 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -3644,9 +3644,9 @@ Unconditional classes:
 2025-07-02 21:26:56.326 DEBUG 16816 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 21:26:56.326 DEBUG 16816 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
 2025-07-02 21:27:08.192 DEBUG 16816 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/request", parameters={}
-2025-07-02 21:27:08.193 DEBUG 16816 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#handlePostRequest(RequestData)
+2025-07-02 21:27:08.193 DEBUG 16816 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#handlePostRequest(RequestData)
 2025-07-02 21:27:08.193 DEBUG 16816 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2025-07-02 21:27:08.228 DEBUG 16816 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.demo.controller.RequestData@2b435834]
+2025-07-02 21:27:08.228 DEBUG 16816 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [controller.com.example.RequestData@2b435834]
 2025-07-02 21:27:08.232  INFO 16816 --- [http-nio-8080-exec-3] c.e.demo.controller.SeleniumController   : === POST запрос получен ===
 2025-07-02 21:27:08.232  INFO 16816 --- [http-nio-8080-exec-3] c.e.demo.controller.SeleniumController   : Река: Волга
 2025-07-02 21:27:08.232  INFO 16816 --- [http-nio-8080-exec-3] c.e.demo.controller.SeleniumController   : ГЭС: Рыбинская
@@ -3681,7 +3681,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 21:27:14.847 DEBUG 16816 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 21:27:14.847 DEBUG 16816 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2025-07-02 21:27:45.231 DEBUG 16816 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 21:27:45.231 DEBUG 16816 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 21:27:45.231 DEBUG 16816 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 21:27:45.232 DEBUG 16816 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 21:27:45.232 DEBUG 16816 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 21:27:45.232 DEBUG 16816 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -3701,10 +3701,10 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 21:30:25.522  INFO 16816 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-02 21:30:25.522  INFO 16816 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-07-02 21:30:25.525  INFO 16816 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-07-02 21:36:43.598  INFO 20388 --- [main] com.example.demo.AppMVC                  : Starting AppMVC using Java 21.0.6 on DESKTOP-03IP502 with PID 20388 (D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3)
-2025-07-02 21:36:43.599 DEBUG 20388 --- [main] com.example.demo.AppMVC                  : Running with Spring Boot v2.7.5, Spring v5.3.23
-2025-07-02 21:36:43.600  INFO 20388 --- [main] com.example.demo.AppMVC                  : No active profile set, falling back to 1 default profile: "default"
-2025-07-02 21:36:43.600 DEBUG 20388 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.demo.AppMVC
+2025-07-02 21:36:43.598  INFO 20388 --- [main] com.example.AppMVC                  : Starting AppMVC using Java 21.0.6 on DESKTOP-03IP502 with PID 20388 (D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\V9_3)
+2025-07-02 21:36:43.599 DEBUG 20388 --- [main] com.example.AppMVC                  : Running with Spring Boot v2.7.5, Spring v5.3.23
+2025-07-02 21:36:43.600  INFO 20388 --- [main] com.example.AppMVC                  : No active profile set, falling back to 1 default profile: "default"
+2025-07-02 21:36:43.600 DEBUG 20388 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.AppMVC
 2025-07-02 21:36:43.641 DEBUG 20388 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2da59753
 2025-07-02 21:36:43.653 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
 2025-07-02 21:36:43.661 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
@@ -3853,7 +3853,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 21:36:45.689 DEBUG 20388 --- [main] .c.JpaMetamodelMappingContextFactoryBean : Finished initializing JpaMetamodelMappingContext!
 2025-07-02 21:36:45.701 DEBUG 20388 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 21:36:45.733 DEBUG 20388 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2025-07-02 21:36:45.755 DEBUG 20388 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for com.example.demo.repository.DataDBRepository…
+2025-07-02 21:36:45.755 DEBUG 20388 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Initializing repository instance for repository.com.example.DataDBRepository…
 2025-07-02 21:36:45.766 DEBUG 20388 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 21:36:45.818 DEBUG 20388 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Looking up named query Data.findByGes
 2025-07-02 21:36:45.820 DEBUG 20388 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Did not find named query Data.findByGes
@@ -3877,7 +3877,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 2025-07-02 21:36:45.945 DEBUG 20388 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
 2025-07-02 21:36:45.946 DEBUG 20388 --- [main] o.s.d.jpa.repository.query.NamedQuery    : Did not find named query Data.findDistinctGes.count
 2025-07-02 21:36:45.946 DEBUG 20388 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2025-07-02 21:36:45.950 DEBUG 20388 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for com.example.demo.repository.DataDBRepository.
+2025-07-02 21:36:45.950 DEBUG 20388 --- [main] o.s.d.r.c.s.RepositoryFactorySupport     : Finished creation of repository instance for repository.com.example.DataDBRepository.
 2025-07-02 21:36:45.952 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jacksonObjectMapper'
 2025-07-02 21:36:45.953 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration'
 2025-07-02 21:36:45.953 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration'
@@ -4015,7 +4015,7 @@ javax.validation.NoProviderFoundException: Unable to create a Configuration, bec
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.5.jar:2.7.5]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.5.jar:2.7.5]
-	at com.example.demo.AppMVC.main(AppMVC.java:17) ~[classes/:na]
+	at com.example.AppMVC.main(AppMVC.java:17) ~[classes/:na]
 
 2025-07-02 21:36:46.407 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcContentNegotiationManager'
 2025-07-02 21:36:46.407 DEBUG 20388 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcConversionService'
@@ -5411,7 +5411,7 @@ Unconditional classes:
 
 
 2025-07-02 21:36:46.630 DEBUG 20388 --- [main] ySourcesPropertyResolver$DefaultResolver : Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
-2025-07-02 21:36:46.632  INFO 20388 --- [main] com.example.demo.AppMVC                  : Started AppMVC in 3.312 seconds (JVM running for 3.816)
+2025-07-02 21:36:46.632  INFO 20388 --- [main] com.example.AppMVC                  : Started AppMVC in 3.312 seconds (JVM running for 3.816)
 2025-07-02 21:36:46.632 DEBUG 20388 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2025-07-02 21:36:46.633 DEBUG 20388 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
 2025-07-02 21:36:53.716  INFO 20388 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
@@ -5424,7 +5424,7 @@ Unconditional classes:
 2025-07-02 21:36:53.718 DEBUG 20388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
 2025-07-02 21:36:53.718  INFO 20388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-07-02 21:36:53.725 DEBUG 20388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2025-07-02 21:36:53.729 DEBUG 20388 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#home()
+2025-07-02 21:36:53.729 DEBUG 20388 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#home()
 2025-07-02 21:36:53.730 DEBUG 20388 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 21:36:53.744 DEBUG 20388 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
 2025-07-02 21:36:53.746 DEBUG 20388 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [class path resource [static/html/index.html]]
@@ -5441,9 +5441,9 @@ Unconditional classes:
 2025-07-02 21:36:53.917 DEBUG 20388 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2025-07-02 21:36:53.918 DEBUG 20388 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
 2025-07-02 21:37:01.517 DEBUG 20388 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/request", parameters={}
-2025-07-02 21:37:01.518 DEBUG 20388 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.demo.controller.SeleniumController#handlePostRequest(RequestData)
+2025-07-02 21:37:01.518 DEBUG 20388 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to controller.com.example.SeleniumController#handlePostRequest(RequestData)
 2025-07-02 21:37:01.518 DEBUG 20388 --- [http-nio-8080-exec-7] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2025-07-02 21:37:01.547 DEBUG 20388 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.demo.controller.RequestData@779f1e1f]
+2025-07-02 21:37:01.547 DEBUG 20388 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [controller.com.example.RequestData@779f1e1f]
 2025-07-02 21:37:01.550  INFO 20388 --- [http-nio-8080-exec-7] c.e.demo.controller.SeleniumController   : === POST запрос получен ===
 2025-07-02 21:37:01.551  INFO 20388 --- [http-nio-8080-exec-7] c.e.demo.controller.SeleniumController   : Река: Волга
 2025-07-02 21:37:01.551  INFO 20388 --- [http-nio-8080-exec-7] c.e.demo.controller.SeleniumController   : ГЭС: Рыбинская

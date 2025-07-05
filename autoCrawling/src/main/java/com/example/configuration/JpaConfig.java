@@ -1,4 +1,4 @@
-package com.example.demo.configuration;
+package com.example.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ public class JpaConfig {
             DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource);
-        em.setPackagesToScan("com.example.demo.entity");
+        em.setPackagesToScan("com.example.entity");
         em.setJpaVendorAdapter(jpaVendorAdapter);
         return em;
     }

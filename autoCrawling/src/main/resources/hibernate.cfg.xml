@@ -21,7 +21,7 @@
         <property name="show_sql">true</property>
 
         <!-- Entity mapping -->
-        <mapping class="com.example.demo.entity.Data"/>
+        <mapping class="com.example.entity.Data"/>
 
     </session-factory>
 </hibernate-configuration>

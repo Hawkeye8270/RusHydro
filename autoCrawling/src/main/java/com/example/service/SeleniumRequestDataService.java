@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.service;
 
 //
 //import com.example.demo.repository.DataDBRepository;

@@ -1,4 +1,4 @@
-package com.example.demo.configuration;
+package com.example.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.chrome.ChromeOptions;

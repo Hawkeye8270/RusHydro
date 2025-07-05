@@ -1,16 +1,11 @@
-package com.example.demo.repository;
+package com.example.repository;
 
-import com.example.demo.entity.Data;
+import com.example.entity.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.text.DecimalFormat;
