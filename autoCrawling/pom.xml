@@ -5,7 +5,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>autoCrawling</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1-SNAPSHOT</version>
     <name>autoCrawling-service</name>
 
     <properties>
@@ -17,25 +17,25 @@
     </properties>
 
     <dependencies>
-        <!-- TESTING -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
+<!--        &lt;!&ndash; TESTING &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.junit.jupiter</groupId>-->
+<!--            <artifactId>junit-jupiter-api</artifactId>-->
+<!--            <version>${junit.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.junit.jupiter</groupId>-->
+<!--            <artifactId>junit-jupiter-engine</artifactId>-->
+<!--            <version>${junit.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>3.8.1</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
         <!-- DBs -->
         <dependency>
@@ -105,12 +105,12 @@
         </dependency>
 
 
-    <!--     Длz графика. -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.18.2</version>
-        </dependency>
+<!--    &lt;!&ndash;     Длz графика. &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-databind</artifactId>-->
+<!--            <version>2.18.2</version>-->
+<!--        </dependency>-->
 
 
         <dependency>
@@ -131,19 +131,55 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
+                <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.example.Main</mainClass> <!-- Ваш главный класс -->
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
+
+
+<!--   РАБОТАЛО БЕЗ DOCKER-->
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-war-plugin</artifactId>-->
+<!--                <version>3.3.2</version>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-resources-plugin</artifactId>-->
+<!--                <version>3.3.0</version>-->
+<!--                <configuration>-->
+<!--                    <encoding>UTF-8</encoding>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+
+
 </project>
