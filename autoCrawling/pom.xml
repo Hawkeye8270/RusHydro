@@ -136,6 +136,11 @@
     </dependencies>
 
     <build>
+<!--        <finalName>autoCrawling</finalName>-->
+<!--    </build>-->
+
+    <finalName>autoCrawling</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -149,6 +154,8 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+
 
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->

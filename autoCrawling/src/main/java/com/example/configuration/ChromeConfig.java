@@ -4,76 +4,46 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
+import java.net.URL;
 
 
 @Configuration
 @Slf4j
 public class ChromeConfig {
 
-    @Bean
-    public WebDriver webDriver() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments(
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-                "--remote-debugging-port=9222",
-                "--disable-gpu",
-                "--window-size=1920,1080"
-        );
-
-        // Для работы в контейнере
-        options.setBinary("/usr/bin/google-chrome");
-
-        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        log.info("Chrome version: {}", options.getBrowserVersion());
-
-        return new ChromeDriver(options);
-    }
-
-
-    // Универсальный путь для Docker и локальной разработки
-    private static final String DRIVER_PATH = isRunningInDocker()
-            ? "/usr/local/bin/chromedriver"
-            : "src/main/resources/chromedriver";
-
-    public static void setDriverPath() {
-        System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
-        log.info("Using chrome driver at: {}", DRIVER_PATH);
-
-        // Проверка существования файла
-        File driverFile = new File(DRIVER_PATH);
-        if (!driverFile.exists()) {
-            log.error("ChromeDriver not found at: {}", driverFile.getAbsolutePath());
-            throw new IllegalStateException("ChromeDriver not found at: " + DRIVER_PATH);
-        }
-
-        // Проверка прав на выполнение (для Linux)
-        if (!driverFile.canExecute() && !System.getProperty("os.name").toLowerCase().contains("win")) {
-            log.warn("ChromeDriver is not executable, trying to set permissions...");
-            driverFile.setExecutable(true);
-        }
-    }
-
     public static ChromeOptions getChromeOptions(boolean headlessMode) {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox"); // Обязательно для Docker
+        options.addArguments("--disable-dev-shm-usage"); // Обязательно для Docker
+        options.addArguments("start-maximized");
 
-        if (headlessMode || isRunningInDocker()) {
-            options.addArguments("--headless");
-        } else {
-            options.addArguments("start-maximized");
+        if (headlessMode) {
+            options.addArguments("--headless=new"); // Новый headless-режим Chrome
         }
         return options;
     }
 
-    private static boolean isRunningInDocker() {
-        return System.getenv("DOCKER_ENV") != null;
-    }
+//    @Bean
+//    public WebDriver webDriver() {
+//        ChromeOptions options = getChromeOptions(true); // headless=true для Docker
+//
+//        // Используем RemoteWebDriver вместо локального
+//        try {
+//            String seleniumHubUrl = System.getenv().getOrDefault(
+//                    "SELENIUM_REMOTE_URL",
+//                    "http://localhost:4444/wd/hub" // fallback для локального тестирования
+//            );
+//            log.info("Connecting to Selenium Hub: {}", seleniumHubUrl);
+//            return new RemoteWebDriver(new URL(seleniumHubUrl), options);
+//        } catch (Exception e) {
+//            throw new RuntimeException("Failed to initialize RemoteWebDriver", e);
+//        }
+//    }
 }
 
 

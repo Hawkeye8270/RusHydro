@@ -3,6 +3,7 @@ package com.example.service;
 
 import com.example.configuration.ChromeConfig;
 
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -13,25 +14,57 @@ import java.util.TreeMap;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static com.example.configuration.ChromeConfig.getChromeOptions;
 
 
 @Service
 @Slf4j
 public class SeleniumDataService {
     private static final Duration WAIT_TIME_MAX = Duration.ofSeconds(1000);
-    private WebDriver driver;
+//    private WebDriver driver;
     private Wait<WebDriver> wait;
+
+    @Bean
+    public WebDriver webDriver() {
+        ChromeOptions options = getChromeOptions(true); // headless=true для Docker
+
+        // Используем RemoteWebDriver вместо локального
+        try {
+            String seleniumHubUrl = System.getenv().getOrDefault(
+                    "SELENIUM_REMOTE_URL",
+                    "http://localhost:4444/wd/hub" // fallback для локального тестирования
+            );
+            log.info("Connecting to Selenium Hub: {}", seleniumHubUrl);
+            return new RemoteWebDriver(new URL(seleniumHubUrl), options);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to initialize RemoteWebDriver", e);
+        }
+    }
+
+    RemoteWebDriver remoteWebDriver = (RemoteWebDriver) webDriver();
+
+//    private WebDriver getChromeDriver(boolean headlessMode) {
+//
+////        ChromeConfig.setDriverPath();
+//        ChromeConfig.setDriverPath();
+//        return new ChromeDriver(ChromeConfig.getChromeOptions(headlessMode));
+//    }
 
     public boolean start(boolean headlessMode) {
         try{
-            driver = getChromeDriver(headlessMode);
-            wait = new WebDriverWait(driver, WAIT_TIME_MAX);
+//            driver = getChromeDriver(headlessMode);
+//            wait = new WebDriverWait(driver, WAIT_TIME_MAX);
+            wait = new WebDriverWait(remoteWebDriver, WAIT_TIME_MAX);
         } catch (Exception ex) {
             log.error("Driver was not initialized: {}", ex.getMessage());
             return false;
@@ -41,7 +74,8 @@ public class SeleniumDataService {
 
     public boolean openPage(String url) {
         try {
-            driver.get(url);
+//            driver.get(url);
+            remoteWebDriver.get(url);
             log.info("Open page: {}", url);
         } catch (Exception ex){
             log.error("open page problem: {}", ex.getMessage());
@@ -51,16 +85,11 @@ public class SeleniumDataService {
     }
 
     public void stop(){
-        if (driver != null) {
-            driver.quit();
+//        if (driver != null) {
+//            driver.quit();
+        if (remoteWebDriver != null) {
+            remoteWebDriver.quit();
         }
-    }
-
-    private WebDriver getChromeDriver(boolean headlessMode) {
-
-        ChromeConfig.setDriverPath();
-        ChromeConfig.setDriverPath();
-        return new ChromeDriver(ChromeConfig.getChromeOptions(headlessMode));
     }
 
     public WebElement getElem(String xpath) {
@@ -82,7 +111,8 @@ public class SeleniumDataService {
 
     public void click(WebElement webElem) throws InterruptedException {
         Thread.sleep(500);
-        ((JavascriptExecutor) driver).executeScript(
+//        ((JavascriptExecutor) driver).executeScript(
+        ((JavascriptExecutor) remoteWebDriver).executeScript(
                 "arguments[0].scrollIntoView({block: 'center'}); arguments[0].click();", webElem);
     }
 
@@ -95,7 +125,8 @@ public class SeleniumDataService {
     }
 
     public void findDate(String year, String month, String day) throws InterruptedException {
-        WebElement dateInput2 = driver.findElement(By.id("water-date"));
+//        WebElement dateInput2 = driver.findElement(By.id("water-date"));
+        WebElement dateInput2 = remoteWebDriver.findElement(By.id("water-date"));
         dateInput2.click();
 
         WebElement datepickerTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.datepicker--nav-title")));
@@ -144,7 +175,8 @@ public class SeleniumDataService {
                 "and @data-date='" + day + "']";
 
         Thread.sleep(1000);
-        driver.findElement(By.xpath(xpath)).click();
+//        driver.findElement(By.xpath(xpath)).click();
+        remoteWebDriver.findElement(By.xpath(xpath)).click();
     }
 
     public Map<Date, Float> collectionData(String ges, String river, String year) throws ParseException {
@@ -153,7 +185,8 @@ public class SeleniumDataService {
 
         try {
             Thread.sleep(3000);
-            List<WebElement> secondAttempt = driver.findElements(By.tagName("option"));
+//            List<WebElement> secondAttempt = driver.findElements(By.tagName("option"));
+            List<WebElement> secondAttempt = remoteWebDriver.findElements(By.tagName("option"));
 
             for (WebElement option : secondAttempt) {
                 if (ges.equals(option.getText())) {

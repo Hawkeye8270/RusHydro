@@ -42,5 +42,46 @@ services:
       - backend  # Фронтенд запустится только после бэкенда
     restart: unless-stopped
 
+
+  selenium-hub:
+    image: selenium/hub:4.15.0
+    ports:
+      - "4444:4444"
+    networks:
+      - selenium-network # Выделенная сеть для Selenium
+
+  chrome:
+    image: selenium/node-chrome:4.15.0
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    volumes:
+      - /dev/shm:/dev/shm
+    networks:
+      - selenium-network
+
+  autocrawling:
+    build:
+      context: ./autoCrawling  # Изменено на папку autoCrawling
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db
+      - selenium-hub
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - default
+      - selenium-network
+
+networks:
+  selenium-network:
+    driver: bridge
+
 volumes:
   postgres_data:
