@@ -2,9 +2,6 @@ package com.example.controller;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
-
-
 @Repository
 public  class RequestData {
     private String river;

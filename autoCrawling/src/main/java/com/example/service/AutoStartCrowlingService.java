@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Service
 @Slf4j
-public class AutoStartCrowlingService  {
+public class AutoStartCrowlingService {
 
     private static final String URL_TEST = "https://rushydro.ru/informer/";
     private static SeleniumDataService seleniumDS;
@@ -25,27 +25,10 @@ public class AutoStartCrowlingService  {
     }
 
     private static DataDBRepository dataDBRepository;
+
     public AutoStartCrowlingService(DataDBRepository dataDBRepository) {
         this.dataDBRepository = dataDBRepository;
     }
-
-//    private static final String URL_TEST = "https://rushydro.ru/informer/";
-//    private final SeleniumDataService seleniumDS;
-//    private final DataDBRepository dataDBRepository;
-//
-//    @Autowired
-//    public AutoStartCrowlingService(SeleniumDataService seleniumDS, DataDBRepository dataDBRepository) {
-//        this.seleniumDS = seleniumDS;
-//        this.dataDBRepository = dataDBRepository;
-//    }
-
-
-//    static String ges = "Рыбинская";
-//    static String river = "Волга";
-//    static String year = "2025";
-//    static String month = "Март";
-//    static String day = "15";
-
 
     public void autoStartCrowling(String river, String ges, LocalDate date) {
         try {
@@ -86,28 +69,6 @@ public class AutoStartCrowlingService  {
             case DECEMBER -> "Декабрь";
         };
     }
-
-//    public static void autoStartCrowling(String river, String ges, String year, String month, String day) {
-//        try {
-//            seleniumDS.start(false);
-//            seleniumDS.openPage(URL_TEST);
-//            closeCookie();
-//            setRiver(river);
-//            setGes(ges);
-//            setPeriodOfDays();
-//            setMonthAndYearAndDate(year, month, day);
-//            DataRepository.createNewData(river, ges, collectionDataFromGes(ges, river, year));
-//
-//            seleniumDS.waitSomeTime(2000);
-////            seleniumDS.stop();
-//
-//        } catch (Exception ex) {
-//            ex.getMessage();
-//        } finally {
-//            seleniumDS.stop();
-//        }
-//    }
-
 
     private static void setRiver(String river) {
         try {
@@ -161,6 +122,4 @@ public class AutoStartCrowlingService  {
             return null;
         }
     }
-
-
 }

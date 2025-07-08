@@ -23,7 +23,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-
 @Service
 @Slf4j
 public class SeleniumDataService {
@@ -38,33 +37,9 @@ public class SeleniumDataService {
         this.wait = wait;
     }
 
-
-//    private final ChromeOptions chromeOptions;
     private final ApplicationContext context;
-
-//    public SeleniumDataService(ChromeOptions chromeOptions, ApplicationContext context) {
-//        this.chromeOptions = chromeOptions;
-//        this.context = context;
-//    }
-
     private RemoteWebDriver driver;
     private WebDriverWait wait;
-
-
-
-//    public SeleniumDataService(RemoteWebDriver driver, WebDriverWait wait) {
-//        this.driver = driver;
-//        this.wait = wait;
-//        log.info("SeleniumDataService initialized with driver: {}", driver);
-//    }
-
-//    public SeleniumDataService(ChromeOptions chromeOptions, ChromeOptions chromeOptions1, ApplicationContext context, RemoteWebDriver driver, WebDriverWait wait) {
-//        this.chromeOptions = chromeOptions1;
-////        this.chromeOptions = chromeOptions;
-//        this.context = context;
-//        this.driver = driver;
-//        this.wait = wait;
-//    }
 
     public boolean start(boolean headlessMode) {
         try {
@@ -96,34 +71,6 @@ public class SeleniumDataService {
         return false;
     }
 
-//    }public boolean start(boolean headlessMode) {
-//
-//        try {
-//            RemoteWebDriver driver = null;
-//            driver = context.getBean(RemoteWebDriver.class);
-//            WebDriverWait wait = context.getBean(WebDriverWait.class);
-//
-//            driver.get("about:blank");
-//            return true;
-//        } catch (Exception ex) {
-//            log.error("WebDriver error", ex);
-//            return false;
-//        } finally {
-//            if (driver != null) {
-//                driver.quit(); // Явно закрываем драйвер после использования
-//            }
-//        }
-//    }
-//    public boolean start(boolean headlessMode) {
-//        try {
-//            driver.get("about:blank"); // Тестовая загрузка страницы
-//            return true;
-//        } catch (Exception ex) {
-//            log.error("WebDriver initialization failed", ex);
-//            return false;
-//        }
-//    }
-
     public boolean openPage(String url) {
         try {
             driver.get(url);
@@ -139,8 +86,6 @@ public class SeleniumDataService {
     public void stop() {
         if (driver != null) {
             driver.quit();
-//        if (remoteWebDriver != null) {
-//            remoteWebDriver.quit();
         }
     }
 
@@ -148,18 +93,18 @@ public class SeleniumDataService {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
     }
 
-    public WebElement getChildElem(String xpath, WebElement parentElem) {
-        return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(parentElem, By.xpath(xpath)));
-    }
+//    public WebElement getChildElem(String xpath, WebElement parentElem) {
+//        return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(parentElem, By.xpath(xpath)));
+//    }
 
-    public String getChildElemText(String xpath, WebElement parentElem) {
-        try {
-            return getChildElem(xpath, parentElem).getText();
-        } catch (Exception ex) {
-            log.warn("Child element not located: {}", ex.getMessage());
-            return "";
-        }
-    }
+//    public String getChildElemText(String xpath, WebElement parentElem) {
+//        try {
+//            return getChildElem(xpath, parentElem).getText();
+//        } catch (Exception ex) {
+//            log.warn("Child element not located: {}", ex.getMessage());
+//            return "";
+//        }
+//    }
 
     public void click(WebElement webElem) throws InterruptedException {
         Thread.sleep(500);
@@ -178,7 +123,6 @@ public class SeleniumDataService {
 
     public void findDate(String year, String month, String day) throws InterruptedException {
         WebElement dateInput2 = driver.findElement(By.id("water-date"));
-//        WebElement dateInput2 = remoteWebDriver.findElement(By.id("water-date"));
         dateInput2.click();
 
         WebElement datepickerTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.datepicker--nav-title")));
@@ -228,7 +172,6 @@ public class SeleniumDataService {
 
         Thread.sleep(1000);
         driver.findElement(By.xpath(xpath)).click();
-//        remoteWebDriver.findElement(By.xpath(xpath)).click();
     }
 
     public Map<Date, Float> collectionData(String ges, String river, String year) throws ParseException {
@@ -238,7 +181,6 @@ public class SeleniumDataService {
         try {
             Thread.sleep(3000);
             List<WebElement> secondAttempt = driver.findElements(By.tagName("option"));
-//            List<WebElement> secondAttempt = remoteWebDriver.findElements(By.tagName("option"));
 
             for (WebElement option : secondAttempt) {
                 if (ges.equals(option.getText())) {
@@ -269,14 +211,6 @@ public class SeleniumDataService {
                 e.printStackTrace();
             }
         }
-
-//        SimpleDateFormat storageFormat = new SimpleDateFormat("dd.MM.yyyy");
-//        System.out.println("-------------------------------------------------------------");
-//        System.out.println("Данные по реке - " + river + ". ГЭС - " + ges + ".");
-//        mapOfData.forEach((key, value) -> System.out.println("Date " + storageFormat.format(key) + " - " + "Level " + value));
-
         return mapOfData;
     }
-
-
 }

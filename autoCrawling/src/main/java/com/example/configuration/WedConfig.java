@@ -24,7 +24,6 @@ public class WedConfig implements WebMvcConfigurer, ApplicationContextAware {
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
-
     @Override
 //    @Bean
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -57,6 +56,4 @@ public class WedConfig implements WebMvcConfigurer, ApplicationContextAware {
 //                });
 //    }
 
-
-//
 }

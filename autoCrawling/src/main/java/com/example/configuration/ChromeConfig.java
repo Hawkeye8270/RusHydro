@@ -12,7 +12,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-
 @Configuration
 @Slf4j
 public class ChromeConfig {
@@ -30,7 +29,6 @@ public class ChromeConfig {
         return options;
     }
 
-//    @Bean(destroyMethod = "quit")
     @Bean
     @Scope("prototype") // Важно: создаем новый экземпляр для каждого запроса
     public RemoteWebDriver remoteWebDriver(ChromeOptions options) throws MalformedURLException {
@@ -49,25 +47,6 @@ public class ChromeConfig {
     public WebDriverWait webDriverWait(RemoteWebDriver driver) {
         return new WebDriverWait(driver, Duration.ofSeconds(30));
     }
-
-
-
-//    @Bean
-//    public WebDriver webDriver() {
-//        ChromeOptions options = getChromeOptions(true); // headless=true для Docker
-//
-//        // Используем RemoteWebDriver вместо локального
-//        try {
-//            String seleniumHubUrl = System.getenv().getOrDefault(
-//                    "SELENIUM_REMOTE_URL",
-//                    "http://localhost:4444/wd/hub" // fallback для локального тестирования
-//            );
-//            log.info("Connecting to Selenium Hub: {}", seleniumHubUrl);
-//            return new RemoteWebDriver(new URL(seleniumHubUrl), options);
-//        } catch (Exception e) {
-//            throw new RuntimeException("Failed to initialize RemoteWebDriver", e);
-//        }
-//    }
 }
 
 
