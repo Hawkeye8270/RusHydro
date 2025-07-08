@@ -48,44 +48,6 @@ riverSelect.addEventListener("change", function() {
     }
 });
 
-//
-// function send_request() {
-//     const requestData = {
-//         river: $("#river").val().replace(/_/g, ' '),
-//         ges: $("#ges").val(),
-//         date: $("#input_date").val()
-//     };
-//
-//     console.log("Отправка данных:", requestData);
-//
-//     fetch('/api/request', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(requestData)
-//     })
-//         .then(response => {
-//             if (!response.ok) throw new Error('Ошибка сети');
-//             return response.json(); // Изменено с text() на json(), если сервер возвращает JSON
-//         })
-//         .then(data => {
-//             console.log("Успех:", data);
-//
-//             // Создаем всплывающее окно с сообщением
-//             // const message = `Данные получены в количестве ${data.count || 'неизвестном'}`;
-//             const message = `Данные получены в количестве ${data.count || 'неизвестном'}`;
-//             alert(message); // Или используйте более красивый модальный диалог
-//
-//             setTimeout(() => location.reload(), 30000);
-//         })
-//         .catch(error => {
-//             console.error("Ошибка:", error);
-//             alert("Произошла ошибка при получении данных");
-//         });
-// }
-
-
 
 function send_request() {
 
@@ -151,62 +113,73 @@ function send_requestToDB() {
             window.location.href = redirectUrl.href;
         })
 
-        // .then(data => {
-        //     console.log("Успех, перенаправляю на:", data.redirectUrl);
-        //     window.location.href = data.redirectUrl;  // Переходим на страницу графика
-        // })
-
         .catch(error => {
             console.error("Ошибка:", error);
             alert("Ошибка при отправке данных: " + error.message);
         });
 }
 
+export default {
+    methods: {
+        async startCrawler() {
+            try {
+                const response = await fetch('http://localhost:8082/api/crawler/manual-start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    credentials: 'include' // Если нужны куки/авторизация
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                alert(JSON.stringify(result));
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert(`Ошибка: ${error.message}`);
+            }
+        }
+    }
+}
+
+// export default {
+//     methods: {
+//         async startCrawler() {
+//             try {
+//                 const response = await fetch('http://localhost:8082/api/crawler/manual-start', {
+//                     method: 'POST',
+//                     headers: {
+//                         'Content-Type': 'application/json',
+//                         'Accept': 'application/json'
+//                     },
+//                     credentials: 'include' // Если нужны куки/авторизация
+//                 });
+//
+//                 if (!response.ok) {
+//                     throw new Error(`HTTP error! status: ${response.status}`);
+//                 }
+//
+//                 const result = await response.json();
+//                 alert(JSON.stringify(result));
+//             } catch (error) {
+//                 console.error('Ошибка:', error);
+//                 alert(`Ошибка: ${error.message}`);
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
 document.getElementById('input_date').max = new Date().toISOString().split('T')[0];
 document.getElementById('input_dateStart').max = new Date().toISOString().split('T')[0];
 document.getElementById('input_dateFinish').max = new Date().toISOString().split('T')[0];
-
-// function send_requestToDB() {
-//
-//     const requestDataToBD = {
-//         // river: $("#river").val(),
-//         river: $("#river").val().replace(/_/g, ' '),
-//         ges: $("#ges").val(),
-//         dateStart: $("#input_dateStart").val(),
-//         dateFinish: $("#input_dateFinish").val()
-//     };
-//
-//     console.log("Отправка данных:", requestDataToBD);
-//
-//     // Вариант 1: POST запрос с JSON в теле
-//     fetch('/api/requestToBD', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(requestDataToBD)
-//     })
-//         .then(response => {
-//             if (!response.ok) throw new Error('Ошибка сети');
-//             return response.text();
-//         })
-//         .then(data => {
-//             console.log("Успех:", data);
-//             setTimeout(() => location.reload(), 30000);
-//         })
-//         .catch(error => {
-//             console.error("Ошибка:", error);
-//         });
-//
-//     // Вариант 2: GET запрос с параметрами в URL
-//     // const params = new URLSearchParams({
-//     //     river: $("#river").val(),
-//     //     ges: $("#ges").val(),
-//     //     date: $("#input_date").val()
-//     // });
-//     // // window.location.href = `/?${params.toString()}`;
-// }
-
 
 
 // Дополнительно: сохраняем выбранную ГЭС в переменную

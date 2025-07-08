@@ -100,35 +100,38 @@
 </tr>
 
 <td>
-    <button @click="startCrawler">Запустить краулинг вручную</button>
+<!--    <button @click="startCrawler">Запустить краулинг вручную</button>-->
+    <button id='startCrawler' onclick='startCrawler()'>Запустить краулинг22</button>
 </td>
 
-<!--<td>-->
-<!--    <button id='send_request' onclick='send_request()'>Запрос данный на RusHydro (за 30 дней)</button>-->
-<!--</td>-->
+<!--<script>-->
+<!--    export default {-->
+<!--        methods: {-->
+<!--            async startCrawler() {-->
+<!--                try {-->
+<!--                    const response = await fetch('http://localhost:8082/api/crawler/manual-start', {-->
+<!--                        method: 'POST',-->
+<!--                        headers: {-->
+<!--                            'Content-Type': 'application/json',-->
+<!--                            'Accept': 'application/json'-->
+<!--                        },-->
+<!--                        credentials: 'include' // Если нужны куки/авторизация-->
+<!--                    });-->
 
-<script>
-    export default {
-        methods: {
-            async startCrawler() {
-                try {
-                    const response = await fetch('http://autocrawling:8082/api/crawler/manual-start', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    });
+<!--                    if (!response.ok) {-->
+<!--                        throw new Error(`HTTP error! status: ${response.status}`);-->
+<!--                    }-->
 
-                    const result = await response.json();
-                    alert(result); // или вывод в интерфейсе
-                } catch (error) {
-                    console.error('Ошибка:', error);
-                    alert('Не удалось запустить краулинг');
-                }
-            }
-        }
-    }
-</script>
+<!--                    const result = await response.json();-->
+<!--                    alert(JSON.stringify(result));-->
+<!--                } catch (error) {-->
+<!--                    console.error('Ошибка:', error);-->
+<!--                    alert(`Ошибка: ${error.message}`);-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 
 
 
