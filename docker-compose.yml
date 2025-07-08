@@ -34,7 +34,6 @@ services:
   frontend:
     build:
       context: ./front  # Путь к папке с Dockerfile фронтенда
-#      dockerfile: Dockerfile  # Или укажите другой файл, если нужно
     container_name: front
     ports:
       - "8080:8080"  # Пробрасываем порт фронтенда
@@ -54,13 +53,6 @@ services:
       timeout: 10s
       retries: 10
 
-#  selenium-hub:
-#    image: selenium/hub:4.15.0
-#    ports:
-#      - "4444:4444"
-#    networks:
-#      - selenium-network # Выделенная сеть для Selenium
-
   chrome:
 #    image: selenium/node-chrome:4.15.0
     image: selenium/node-chrome:4.31.0
@@ -76,20 +68,6 @@ services:
     depends_on:
       selenium-hub:
         condition: service_healthy
-
-#  chrome:
-#    image: selenium/node-chrome:4.15.0
-#    shm_size: 2gb
-#    depends_on:
-#      - selenium-hub
-#    environment:
-#      - SE_EVENT_BUS_HOST=selenium-hub
-#      - SE_EVENT_BUS_PUBLISH_PORT=4442
-#      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-#    volumes:
-#      - /dev/shm:/dev/shm
-#    networks:
-#      - selenium-network
 
   autocrawling:
     build:
