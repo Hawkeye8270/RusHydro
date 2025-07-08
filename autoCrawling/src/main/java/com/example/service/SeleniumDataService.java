@@ -1,45 +1,128 @@
 package com.example.service;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.http.ClientConfig;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
+
 @Service
 @Slf4j
 public class SeleniumDataService {
+    private static final String SELENIUM_HUB_URL = "http://selenium-hub:4444/wd/hub";
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(30);
+    private final ChromeOptions chromeOptions;
 
-    private final RemoteWebDriver driver;
-    private final WebDriverWait wait;
-
-    public SeleniumDataService(RemoteWebDriver driver, WebDriverWait wait) {
+    public SeleniumDataService(ChromeOptions chromeOptions, ApplicationContext context, RemoteWebDriver driver, WebDriverWait wait) {
+        this.chromeOptions = chromeOptions;
+        this.context = context;
         this.driver = driver;
         this.wait = wait;
-        log.info("SeleniumDataService initialized with driver: {}", driver);
     }
 
+
+//    private final ChromeOptions chromeOptions;
+    private final ApplicationContext context;
+
+//    public SeleniumDataService(ChromeOptions chromeOptions, ApplicationContext context) {
+//        this.chromeOptions = chromeOptions;
+//        this.context = context;
+//    }
+
+    private RemoteWebDriver driver;
+    private WebDriverWait wait;
+
+
+
+//    public SeleniumDataService(RemoteWebDriver driver, WebDriverWait wait) {
+//        this.driver = driver;
+//        this.wait = wait;
+//        log.info("SeleniumDataService initialized with driver: {}", driver);
+//    }
+
+//    public SeleniumDataService(ChromeOptions chromeOptions, ChromeOptions chromeOptions1, ApplicationContext context, RemoteWebDriver driver, WebDriverWait wait) {
+//        this.chromeOptions = chromeOptions1;
+////        this.chromeOptions = chromeOptions;
+//        this.context = context;
+//        this.driver = driver;
+//        this.wait = wait;
+//    }
 
     public boolean start(boolean headlessMode) {
         try {
-            driver.get("about:blank"); // Тестовая загрузка страницы
+            // Настройка ChromeOptions
+            if (headlessMode) {
+                chromeOptions.addArguments("--headless=new");
+            }
+
+            // Конфигурация клиента с таймаутами
+            ClientConfig clientConfig = ClientConfig.defaultConfig()
+                    .readTimeout(Duration.ofSeconds(90))
+                    .connectionTimeout(Duration.ofSeconds(30));
+
+            // Инициализация драйвера
+            driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), chromeOptions);
+            wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
+
+            // Проверка работоспособности
+            driver.get("about:blank");
+            log.info("WebDriver successfully started. Session ID: {}", driver.getSessionId());
             return true;
-        } catch (Exception ex) {
-            log.error("WebDriver initialization failed", ex);
-            return false;
+
+        } catch (MalformedURLException e) {
+            log.error("Invalid Selenium Hub URL: {}", SELENIUM_HUB_URL, e);
+        } catch (Exception e) {
+            log.error("WebDriver initialization failed", e);
+            stop(); // Гарантированное освобождение ресурсов
         }
+        return false;
     }
+
+//    }public boolean start(boolean headlessMode) {
+//
+//        try {
+//            RemoteWebDriver driver = null;
+//            driver = context.getBean(RemoteWebDriver.class);
+//            WebDriverWait wait = context.getBean(WebDriverWait.class);
+//
+//            driver.get("about:blank");
+//            return true;
+//        } catch (Exception ex) {
+//            log.error("WebDriver error", ex);
+//            return false;
+//        } finally {
+//            if (driver != null) {
+//                driver.quit(); // Явно закрываем драйвер после использования
+//            }
+//        }
+//    }
+//    public boolean start(boolean headlessMode) {
+//        try {
+//            driver.get("about:blank"); // Тестовая загрузка страницы
+//            return true;
+//        } catch (Exception ex) {
+//            log.error("WebDriver initialization failed", ex);
+//            return false;
+//        }
+//    }
 
     public boolean openPage(String url) {
         try {

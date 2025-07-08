@@ -97,9 +97,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
+
     depends_on:
-      - db
-      - selenium-hub
+      db:
+        condition: service_healthy
+      selenium-hub:
+        condition: service_healthy
+      chrome:
+        condition: service_healthy
+
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     networks:

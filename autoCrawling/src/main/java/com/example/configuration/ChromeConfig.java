@@ -6,6 +6,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -29,19 +30,22 @@ public class ChromeConfig {
         return options;
     }
 
-    @Bean(destroyMethod = "quit")
+//    @Bean(destroyMethod = "quit")
+    @Bean
+    @Scope("prototype") // Важно: создаем новый экземпляр для каждого запроса
     public RemoteWebDriver remoteWebDriver(ChromeOptions options) throws MalformedURLException {
         String hubUrl = System.getenv().getOrDefault(
                 "SELENIUM_REMOTE_URL",
                 "http://selenium-hub:4444/wd/hub"
         );
-        log.info("Connecting to Selenium Hub: {}", hubUrl);
+        log.info("Creating new WebDriver session to: {}", hubUrl);
         RemoteWebDriver driver = new RemoteWebDriver(new URL(hubUrl), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
 
     @Bean
+    @Scope("prototype")
     public WebDriverWait webDriverWait(RemoteWebDriver driver) {
         return new WebDriverWait(driver, Duration.ofSeconds(30));
     }
