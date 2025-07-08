@@ -17,6 +17,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - selenium-network
 
   backend:
     build:
@@ -26,10 +28,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    environment:  # Правильное форматирование environment
+    environment:
       SPRING_DATASOURCE_URL: "jdbc:p6spy:postgresql://db:5432/rushydro"
       SPRING_DATASOURCE_USERNAME: "postgres"
-      SPRING_DATASOURCE_PASSWORD: "123"  # Всегда в кавычках!
+      SPRING_DATASOURCE_PASSWORD: "123"
+    networks:
+      - selenium-network
 
   frontend:
     build:
@@ -40,6 +44,8 @@ services:
     depends_on:
       - backend  # Фронтенд запустится только после бэкенда
     restart: unless-stopped
+    networks:
+      - selenium-network
 
   selenium-hub:
 #    image: selenium/hub:4.15.0
@@ -52,6 +58,8 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
+    networks:
+      - selenium-network
 
   chrome:
 #    image: selenium/node-chrome:4.15.0
@@ -68,6 +76,8 @@ services:
     depends_on:
       selenium-hub:
         condition: service_healthy
+    networks:
+      - selenium-network
 
   autocrawling:
     build:
@@ -75,7 +85,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
-
     depends_on:
       db:
         condition: service_healthy
@@ -83,11 +92,9 @@ services:
         condition: service_healthy
       chrome:
         condition: service_healthy
-
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     networks:
-      - default
       - selenium-network
 
 networks:
