@@ -21,12 +21,4 @@ public class CorsConfig implements WebMvcConfigurer {
                 .maxAge(3600); // кеширование CORS-правил на 1 час
     }
 
-
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**")
-//                .allowedOrigins("http://localhost:8081") // Разрешить запросы с 8081
-//                .allowedMethods("GET", "POST", "PUT", "DELETE")
-//                .allowCredentials(true);
-//    }
 }

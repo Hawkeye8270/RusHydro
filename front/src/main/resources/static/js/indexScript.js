@@ -120,50 +120,50 @@ function send_requestToDB() {
 }
 
 
-// Глобальная функция для кнопки краулера
-window.startCrawler = async function() {
-    console.log('Функция startCrawler вызвана'); // Логирование
-
-    try {
-        // 1. Подготовка запроса
-        const apiUrl = 'http://localhost:8082/api/crawler/manual-start';
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            // credentials: 'include',
-            credentials: 'same-origin',
-            body: JSON.stringify({}) // Пустое тело запроса
-        };
-
-        console.log('Отправка запроса на:', apiUrl);
-
-        // 2. Отправка запроса
-        const response = await fetch(apiUrl, options);
-
-        console.log('Получен ответ. Статус:', response.status);
-
-        // 3. Обработка ответа
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(`Ошибка сервера ${response.status}: ${errorText}`);
-        }
-
-        // const result = await response.json();
-        const result = await response.text();
-
-        // 4. Уведомление пользователя
-        alert(`Краулинг успешно запущен: ${JSON.stringify(result, null, 2)}`);
-        console.log('Результат:', result);
-
-    } catch (error) {
-        // 5. Обработка ошибок
-        console.error('Произошла ошибка:', error);
-        alert(`Ошибка при запуске краулинга: ${error.message}`);
-    }
-};
+// // Глобальная функция для кнопки краулера
+// window.startCrawler = async function() {
+//     console.log('Функция startCrawler вызвана'); // Логирование
+//
+//     try {
+//         // 1. Подготовка запроса
+//         const apiUrl = 'http://localhost:8082/api/crawler/manual-start';
+//         const options = {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'application/json'
+//             },
+//             // credentials: 'include',
+//             credentials: 'same-origin',
+//             body: JSON.stringify({}) // Пустое тело запроса
+//         };
+//
+//         console.log('Отправка запроса на:', apiUrl);
+//
+//         // 2. Отправка запроса
+//         const response = await fetch(apiUrl, options);
+//
+//         console.log('Получен ответ. Статус:', response.status);
+//
+//         // 3. Обработка ответа
+//         if (!response.ok) {
+//             const errorText = await response.text();
+//             throw new Error(`Ошибка сервера ${response.status}: ${errorText}`);
+//         }
+//
+//         // const result = await response.json();
+//         const result = await response.text();
+//
+//         // 4. Уведомление пользователя
+//         alert(`Краулинг успешно запущен: ${JSON.stringify(result, null, 2)}`);
+//         console.log('Результат:', result);
+//
+//     } catch (error) {
+//         // 5. Обработка ошибок
+//         console.error('Произошла ошибка:', error);
+//         alert(`Ошибка при запуске краулинга: ${error.message}`);
+//     }
+// };
 
 
 document.getElementById('input_date').max = new Date().toISOString().split('T')[0];
