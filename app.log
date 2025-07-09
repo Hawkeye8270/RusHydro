@@ -1,140 +1,144 @@
-2025-07-08 16:13:43.927  INFO 13084 --- [main] com.example.AppMVC                       : Starting AppMVC using Java 17.0.13 on DESKTOP-03IP502 with PID 13084 (D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3)
-2025-07-08 16:13:43.928 DEBUG 13084 --- [main] com.example.AppMVC                       : Running with Spring Boot v2.7.4, Spring v5.3.23
-2025-07-08 16:13:43.928  INFO 13084 --- [main] com.example.AppMVC                       : No active profile set, falling back to 1 default profile: "default"
-2025-07-08 16:13:43.928 DEBUG 13084 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.AppMVC
-2025-07-08 16:13:43.975 DEBUG 13084 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@79517588
-2025-07-08 16:13:43.987 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
-2025-07-08 16:13:43.995 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
-2025-07-08 16:13:44.029 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\AppConfig.class]
-2025-07-08 16:13:44.031 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\ChromeConfig.class]
-2025-07-08 16:13:44.032 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\JpaConfig.class]
-2025-07-08 16:13:44.032 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\SchedulerConfig.class]
-2025-07-08 16:13:44.033 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\WedConfig.class]
-2025-07-08 16:13:44.037 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]
-2025-07-08 16:13:44.038 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\RequestData.class]
-2025-07-08 16:13:44.040 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataDBRepository.class]
-2025-07-08 16:13:44.040 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataRepository.class]
-2025-07-08 16:13:44.041 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]
-2025-07-08 16:13:44.041 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]
-2025-07-08 16:13:44.042 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]
-2025-07-08 16:13:44.053 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\AppMVC.class]
-2025-07-08 16:13:44.053 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\AppConfig.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\ChromeConfig.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\JpaConfig.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\SchedulerConfig.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\RequestData.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataDBRepository.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataRepository.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]
-2025-07-08 16:13:44.054 DEBUG 13084 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]
-2025-07-08 16:13:44.239  INFO 13084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-07-08 16:13:44.245 DEBUG 13084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Scanning for JPA repositories in packages com.example.
-2025-07-08 16:13:44.249 DEBUG 13084 --- [main] o.s.d.r.c.RepositoryComponentProvider    : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataDBRepository.class]
-2025-07-08 16:13:44.270  INFO 13084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
-2025-07-08 16:13:44.474 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'propertySourcesPlaceholderConfigurer'
-2025-07-08 16:13:44.478 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'emBeanDefinitionRegistrarPostProcessor'
-2025-07-08 16:13:44.478 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor'
-2025-07-08 16:13:44.497 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
-2025-07-08 16:13:44.497 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'preserveErrorControllerTargetClassPostProcessor'
-2025-07-08 16:13:44.498 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
-2025-07-08 16:13:44.498 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
-2025-07-08 16:13:44.500 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
-2025-07-08 16:13:44.500 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
-2025-07-08 16:13:44.503 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
-2025-07-08 16:13:44.504 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor'
-2025-07-08 16:13:44.504 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.internalConfigurationPropertiesBinder'
-2025-07-08 16:13:44.504 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.internalConfigurationPropertiesBinderFactory'
-2025-07-08 16:13:44.506 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
-2025-07-08 16:13:44.525 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'persistenceExceptionTranslationPostProcessor'
-2025-07-08 16:13:44.531 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'persistenceExceptionTranslationPostProcessor' via factory method to bean named 'environment'
-2025-07-08 16:13:44.533 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'webServerFactoryCustomizerBeanPostProcessor'
-2025-07-08 16:13:44.533 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'errorPageRegistrarBeanPostProcessor'
-2025-07-08 16:13:44.533 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'projectingArgumentResolverBeanPostProcessor'
-2025-07-08 16:13:44.534 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-2025-07-08 16:13:44.534 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration'
-2025-07-08 16:13:44.538 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'transactionAttributeSource'
-2025-07-08 16:13:44.540 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'transactionInterceptor'
-2025-07-08 16:13:44.541 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'transactionInterceptor' via factory method to bean named 'transactionAttributeSource'
-2025-07-08 16:13:44.543 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.transaction.config.internalTransactionAdvisor' via factory method to bean named 'transactionAttributeSource'
-2025-07-08 16:13:44.543 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.transaction.config.internalTransactionAdvisor' via factory method to bean named 'transactionInterceptor'
-2025-07-08 16:13:44.559 DEBUG 13084 --- [main] o.s.u.c.s.UiApplicationContextUtils      : Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@26b95b0b]
-2025-07-08 16:13:44.560 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'tomcatServletWebServerFactory'
-2025-07-08 16:13:44.560 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat'
-2025-07-08 16:13:44.592 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'websocketServletWebServerCustomizer'
-2025-07-08 16:13:44.592 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration'
-2025-07-08 16:13:44.593 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'servletWebServerFactoryCustomizer'
-2025-07-08 16:13:44.593 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration'
-2025-07-08 16:13:44.594 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
-2025-07-08 16:13:44.597 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.properties.BoundConfigurationProperties'
-2025-07-08 16:13:44.608 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'servletWebServerFactoryCustomizer' via factory method to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
-2025-07-08 16:13:44.609 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'tomcatServletWebServerFactoryCustomizer'
-2025-07-08 16:13:44.609 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'tomcatServletWebServerFactoryCustomizer' via factory method to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
-2025-07-08 16:13:44.609 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'tomcatWebServerFactoryCustomizer'
-2025-07-08 16:13:44.610 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration'
-2025-07-08 16:13:44.610 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'tomcatWebServerFactoryCustomizer' via factory method to bean named 'environment'
-2025-07-08 16:13:44.610 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'tomcatWebServerFactoryCustomizer' via factory method to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
-2025-07-08 16:13:44.611 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'localeCharsetMappingsCustomizer'
-2025-07-08 16:13:44.611 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration'
-2025-07-08 16:13:44.611 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration' via constructor to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
-2025-07-08 16:13:44.622 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'errorPageCustomizer'
-2025-07-08 16:13:44.622 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration'
-2025-07-08 16:13:44.622 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration' via constructor to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
-2025-07-08 16:13:44.622 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dispatcherServletRegistration'
-2025-07-08 16:13:44.623 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration'
-2025-07-08 16:13:44.623 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dispatcherServlet'
-2025-07-08 16:13:44.623 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletConfiguration'
-2025-07-08 16:13:44.625 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties'
-2025-07-08 16:13:44.626 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dispatcherServlet' via factory method to bean named 'spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties'
-2025-07-08 16:13:44.635 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dispatcherServletRegistration' via factory method to bean named 'dispatcherServlet'
-2025-07-08 16:13:44.635 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dispatcherServletRegistration' via factory method to bean named 'spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties'
-2025-07-08 16:13:44.636 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'multipartConfigElement'
-2025-07-08 16:13:44.636 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration'
-2025-07-08 16:13:44.636 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
-2025-07-08 16:13:44.637 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
-2025-07-08 16:13:44.640 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-2025-07-08 16:13:44.700 DEBUG 13084 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: C:\Users\User\.m2\repository\org\springframework\boot\spring-boot\2.7.4\spring-boot-2.7.4.jar
-2025-07-08 16:13:44.700 DEBUG 13084 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: C:\Users\User\.m2\repository\org\springframework\boot\spring-boot\2.7.4\spring-boot-2.7.4.jar
-2025-07-08 16:13:44.700 DEBUG 13084 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
-2025-07-08 16:13:44.719  INFO 13084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-2025-07-08 16:13:44.726  INFO 13084 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-07-08 16:13:44.726  INFO 13084 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2025-07-08 16:13:44.910  INFO 13084 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2025-07-08 16:13:44.914  INFO 13084 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-07-08 16:13:44.914 DEBUG 13084 --- [main] w.s.c.ServletWebServerApplicationContext : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
-2025-07-08 16:13:44.914  INFO 13084 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 939 ms
-2025-07-08 16:13:44.916 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'characterEncodingFilter'
-2025-07-08 16:13:44.919 DEBUG 13084 --- [main] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: characterEncodingFilter urls=[/*] order=-2147483648
-2025-07-08 16:13:44.919 DEBUG 13084 --- [main] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: dispatcherServlet urls=[/]
-2025-07-08 16:13:44.933 DEBUG 13084 --- [main] s.b.w.s.f.OrderedCharacterEncodingFilter : Filter 'characterEncodingFilter' configured for use
-2025-07-08 16:13:44.937 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dataSourceScriptDatabaseInitializer'
-2025-07-08 16:13:44.937 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration'
-2025-07-08 16:13:44.938 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dataSource'
-2025-07-08 16:13:44.938 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'appConfig'
-2025-07-08 16:13:44.947 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties'
-2025-07-08 16:13:44.948 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dataSourceScriptDatabaseInitializer' via factory method to bean named 'dataSource'
-2025-07-08 16:13:44.948 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dataSourceScriptDatabaseInitializer' via factory method to bean named 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties'
-2025-07-08 16:13:44.950 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'entityManagerFactory'
-2025-07-08 16:13:44.950 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaConfig'
-2025-07-08 16:13:44.950 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaVendorAdapter'
-2025-07-08 16:13:44.950 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration'
-2025-07-08 16:13:44.951 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
-2025-07-08 16:13:44.952 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties'
-2025-07-08 16:13:44.953 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'dataSource'
-2025-07-08 16:13:44.954 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
-2025-07-08 16:13:44.954 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'org.springframework.beans.factory.support.DefaultListableBeanFactory@75ed9710'
-2025-07-08 16:13:44.954 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties'
-2025-07-08 16:13:44.955 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'hikariPoolDataSourceMetadataProvider'
-2025-07-08 16:13:44.955 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration'
-2025-07-08 16:13:44.986 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'entityManagerFactory' via factory method to bean named 'dataSource'
-2025-07-08 16:13:44.986 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'entityManagerFactory' via factory method to bean named 'jpaVendorAdapter'
-2025-07-08 16:13:44.995 DEBUG 13084 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2025-07-08 16:13:45.008  INFO 13084 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-07-08 16:13:45.046  INFO 13084 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2025-07-08 16:13:45.160  INFO 13084 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-07-08 16:13:45.247  INFO 13084 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-07-08 16:13:48.599 ERROR 13084 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+2025-07-09 12:24:11.708  INFO 16408 --- [main] com.example.AppMVC                       : Starting AppMVC using Java 17.0.13 on DESKTOP-03IP502 with PID 16408 (D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes started by User in D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3)
+2025-07-09 12:24:11.712 DEBUG 16408 --- [main] com.example.AppMVC                       : Running with Spring Boot v2.7.4, Spring v5.3.23
+2025-07-09 12:24:11.712  INFO 16408 --- [main] com.example.AppMVC                       : No active profile set, falling back to 1 default profile: "default"
+2025-07-09 12:24:11.713 DEBUG 16408 --- [main] o.s.boot.SpringApplication               : Loading source class com.example.AppMVC
+2025-07-09 12:24:11.766 DEBUG 16408 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@79517588
+2025-07-09 12:24:11.778 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2025-07-09 12:24:11.784 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
+2025-07-09 12:24:11.822 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\AppConfig.class]
+2025-07-09 12:24:11.823 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\ChromeConfig.class]
+2025-07-09 12:24:11.823 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\JpaConfig.class]
+2025-07-09 12:24:11.823 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\SchedulerConfig.class]
+2025-07-09 12:24:11.825 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\WedConfig.class]
+2025-07-09 12:24:11.831 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]
+2025-07-09 12:24:11.831 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\RequestData.class]
+2025-07-09 12:24:11.834 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataDBRepository.class]
+2025-07-09 12:24:11.834 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataRepository.class]
+2025-07-09 12:24:11.834 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]
+2025-07-09 12:24:11.835 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlerScheduler.class]
+2025-07-09 12:24:11.835 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]
+2025-07-09 12:24:11.836 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]
+2025-07-09 12:24:11.846 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\AppMVC.class]
+2025-07-09 12:24:11.846 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\AppConfig.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\ChromeConfig.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\JpaConfig.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\configuration\SchedulerConfig.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\RequestData.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataDBRepository.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataRepository.class]
+2025-07-09 12:24:11.847 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]
+2025-07-09 12:24:11.848 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlerScheduler.class]
+2025-07-09 12:24:11.848 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]
+2025-07-09 12:24:11.848 DEBUG 16408 --- [main] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]
+2025-07-09 12:24:12.025  INFO 16408 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-09 12:24:12.030 DEBUG 16408 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Scanning for JPA repositories in packages com.example.
+2025-07-09 12:24:12.035 DEBUG 16408 --- [main] o.s.d.r.c.RepositoryComponentProvider    : Identified candidate component class: file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\repository\DataDBRepository.class]
+2025-07-09 12:24:12.056  INFO 16408 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
+2025-07-09 12:24:12.239 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'propertySourcesPlaceholderConfigurer'
+2025-07-09 12:24:12.243 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'emBeanDefinitionRegistrarPostProcessor'
+2025-07-09 12:24:12.244 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor'
+2025-07-09 12:24:12.265 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2025-07-09 12:24:12.266 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'preserveErrorControllerTargetClassPostProcessor'
+2025-07-09 12:24:12.267 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2025-07-09 12:24:12.267 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionalEventListenerFactory'
+2025-07-09 12:24:12.269 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2025-07-09 12:24:12.270 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2025-07-09 12:24:12.272 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+2025-07-09 12:24:12.272 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor'
+2025-07-09 12:24:12.272 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.internalConfigurationPropertiesBinder'
+2025-07-09 12:24:12.272 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.internalConfigurationPropertiesBinderFactory'
+2025-07-09 12:24:12.273 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2025-07-09 12:24:12.293 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalScheduledAnnotationProcessor'
+2025-07-09 12:24:12.293 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.scheduling.annotation.SchedulingConfiguration'
+2025-07-09 12:24:12.295 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'persistenceExceptionTranslationPostProcessor'
+2025-07-09 12:24:12.302 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'persistenceExceptionTranslationPostProcessor' via factory method to bean named 'environment'
+2025-07-09 12:24:12.304 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'webServerFactoryCustomizerBeanPostProcessor'
+2025-07-09 12:24:12.304 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'errorPageRegistrarBeanPostProcessor'
+2025-07-09 12:24:12.304 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'projectingArgumentResolverBeanPostProcessor'
+2025-07-09 12:24:12.305 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
+2025-07-09 12:24:12.305 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration'
+2025-07-09 12:24:12.312 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'transactionAttributeSource'
+2025-07-09 12:24:12.315 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'transactionInterceptor'
+2025-07-09 12:24:12.315 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'transactionInterceptor' via factory method to bean named 'transactionAttributeSource'
+2025-07-09 12:24:12.318 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.transaction.config.internalTransactionAdvisor' via factory method to bean named 'transactionAttributeSource'
+2025-07-09 12:24:12.319 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.transaction.config.internalTransactionAdvisor' via factory method to bean named 'transactionInterceptor'
+2025-07-09 12:24:12.332 DEBUG 16408 --- [main] o.s.u.c.s.UiApplicationContextUtils      : Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@7cd4a4d7]
+2025-07-09 12:24:12.332 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'tomcatServletWebServerFactory'
+2025-07-09 12:24:12.332 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat'
+2025-07-09 12:24:12.355 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'websocketServletWebServerCustomizer'
+2025-07-09 12:24:12.355 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration'
+2025-07-09 12:24:12.356 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'servletWebServerFactoryCustomizer'
+2025-07-09 12:24:12.356 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration'
+2025-07-09 12:24:12.357 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
+2025-07-09 12:24:12.361 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.context.properties.BoundConfigurationProperties'
+2025-07-09 12:24:12.373 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'servletWebServerFactoryCustomizer' via factory method to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
+2025-07-09 12:24:12.374 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'tomcatServletWebServerFactoryCustomizer'
+2025-07-09 12:24:12.374 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'tomcatServletWebServerFactoryCustomizer' via factory method to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
+2025-07-09 12:24:12.375 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'tomcatWebServerFactoryCustomizer'
+2025-07-09 12:24:12.375 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration'
+2025-07-09 12:24:12.375 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'tomcatWebServerFactoryCustomizer' via factory method to bean named 'environment'
+2025-07-09 12:24:12.375 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'tomcatWebServerFactoryCustomizer' via factory method to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
+2025-07-09 12:24:12.376 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'localeCharsetMappingsCustomizer'
+2025-07-09 12:24:12.376 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration'
+2025-07-09 12:24:12.376 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration' via constructor to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
+2025-07-09 12:24:12.392 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'errorPageCustomizer'
+2025-07-09 12:24:12.392 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration'
+2025-07-09 12:24:12.392 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration' via constructor to bean named 'server-org.springframework.boot.autoconfigure.web.ServerProperties'
+2025-07-09 12:24:12.393 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dispatcherServletRegistration'
+2025-07-09 12:24:12.393 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration'
+2025-07-09 12:24:12.393 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dispatcherServlet'
+2025-07-09 12:24:12.393 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletConfiguration'
+2025-07-09 12:24:12.394 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties'
+2025-07-09 12:24:12.396 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dispatcherServlet' via factory method to bean named 'spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties'
+2025-07-09 12:24:12.403 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dispatcherServletRegistration' via factory method to bean named 'dispatcherServlet'
+2025-07-09 12:24:12.403 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dispatcherServletRegistration' via factory method to bean named 'spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties'
+2025-07-09 12:24:12.407 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'multipartConfigElement'
+2025-07-09 12:24:12.407 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration'
+2025-07-09 12:24:12.407 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
+2025-07-09 12:24:12.410 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
+2025-07-09 12:24:12.413 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
+2025-07-09 12:24:12.460 DEBUG 16408 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: C:\Users\User\.m2\repository\org\springframework\boot\spring-boot\2.7.4\spring-boot-2.7.4.jar
+2025-07-09 12:24:12.461 DEBUG 16408 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: C:\Users\User\.m2\repository\org\springframework\boot\spring-boot\2.7.4\spring-boot-2.7.4.jar
+2025-07-09 12:24:12.461 DEBUG 16408 --- [main] .s.b.w.e.t.TomcatServletWebServerFactory : None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2025-07-09 12:24:12.475  INFO 16408 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2025-07-09 12:24:12.482  INFO 16408 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-09 12:24:12.482  INFO 16408 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2025-07-09 12:24:12.651  INFO 16408 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-07-09 12:24:12.654  INFO 16408 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-09 12:24:12.655 DEBUG 16408 --- [main] w.s.c.ServletWebServerApplicationContext : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2025-07-09 12:24:12.655  INFO 16408 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 889 ms
+2025-07-09 12:24:12.656 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'characterEncodingFilter'
+2025-07-09 12:24:12.660 DEBUG 16408 --- [main] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: characterEncodingFilter urls=[/*] order=-2147483648
+2025-07-09 12:24:12.660 DEBUG 16408 --- [main] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: dispatcherServlet urls=[/]
+2025-07-09 12:24:12.671 DEBUG 16408 --- [main] s.b.w.s.f.OrderedCharacterEncodingFilter : Filter 'characterEncodingFilter' configured for use
+2025-07-09 12:24:12.675 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dataSourceScriptDatabaseInitializer'
+2025-07-09 12:24:12.675 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration'
+2025-07-09 12:24:12.676 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'dataSource'
+2025-07-09 12:24:12.676 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'appConfig'
+2025-07-09 12:24:12.687 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties'
+2025-07-09 12:24:12.690 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dataSourceScriptDatabaseInitializer' via factory method to bean named 'dataSource'
+2025-07-09 12:24:12.690 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'dataSourceScriptDatabaseInitializer' via factory method to bean named 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties'
+2025-07-09 12:24:12.692 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'entityManagerFactory'
+2025-07-09 12:24:12.692 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaConfig'
+2025-07-09 12:24:12.692 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'jpaVendorAdapter'
+2025-07-09 12:24:12.693 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration'
+2025-07-09 12:24:12.693 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
+2025-07-09 12:24:12.694 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties'
+2025-07-09 12:24:12.695 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'dataSource'
+2025-07-09 12:24:12.696 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties'
+2025-07-09 12:24:12.696 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'org.springframework.beans.factory.support.DefaultListableBeanFactory@1e63ec0b'
+2025-07-09 12:24:12.696 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' via constructor to bean named 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties'
+2025-07-09 12:24:12.697 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'hikariPoolDataSourceMetadataProvider'
+2025-07-09 12:24:12.697 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration'
+2025-07-09 12:24:12.720 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'entityManagerFactory' via factory method to bean named 'dataSource'
+2025-07-09 12:24:12.720 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'entityManagerFactory' via factory method to bean named 'jpaVendorAdapter'
+2025-07-09 12:24:12.726 DEBUG 16408 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2025-07-09 12:24:12.735  INFO 16408 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-09 12:24:12.763  INFO 16408 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2025-07-09 12:24:12.844  INFO 16408 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-07-09 12:24:12.913  INFO 16408 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-09 12:24:16.261 ERROR 16408 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
 
 org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:296) ~[postgresql-42.2.10.jar:42.2.10]
@@ -188,7 +192,7 @@ org.postgresql.util.PSQLException: Ошибка при попытке подсо
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
-	at com.example.AppMVC.main(AppMVC.java:17) ~[classes/:na]
+	at com.example.AppMVC.main(AppMVC.java:19) ~[classes/:na]
 Caused by: java.net.UnknownHostException: db
 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572) ~[na:na]
 	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
@@ -198,7 +202,7 @@ Caused by: java.net.UnknownHostException: db
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:196) ~[postgresql-42.2.10.jar:42.2.10]
 	... 51 common frames omitted
 
-2025-07-08 16:13:48.601  WARN 13084 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+2025-07-09 12:24:16.263  WARN 16408 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
 
 org.postgresql.util.PSQLException: Ошибка при попытке подсоединения.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:296) ~[postgresql-42.2.10.jar:42.2.10]
@@ -252,7 +256,7 @@ org.postgresql.util.PSQLException: Ошибка при попытке подсо
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
-	at com.example.AppMVC.main(AppMVC.java:17) ~[classes/:na]
+	at com.example.AppMVC.main(AppMVC.java:19) ~[classes/:na]
 Caused by: java.net.UnknownHostException: db
 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572) ~[na:na]
 	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
@@ -262,31 +266,31 @@ Caused by: java.net.UnknownHostException: db
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:196) ~[postgresql-42.2.10.jar:42.2.10]
 	... 51 common frames omitted
 
-2025-07-08 16:13:48.614  INFO 13084 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2025-07-08 16:13:48.912  INFO 13084 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2025-07-08 16:13:48.917  INFO 13084 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-07-08 16:13:48.919 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'appMVC'
-2025-07-08 16:13:48.919 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'chromeConfig'
-2025-07-08 16:13:48.920 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'schedulerConfig'
-2025-07-08 16:13:48.920 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'wedConfig'
-2025-07-08 16:13:48.920 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'crawlerInternalController'
-2025-07-08 16:13:48.921 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'crawlingSchedulerServise'
-2025-07-08 16:13:48.922 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'autoStartCrowlingService'
-2025-07-08 16:13:48.922 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'seleniumDataService'
-2025-07-08 16:13:48.923 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'chromeOptions'
-2025-07-08 16:13:48.928 DEBUG 13084 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'remoteWebDriver' via factory method to bean named 'chromeOptions'
-2025-07-08 16:13:48.929  INFO 13084 --- [main] com.example.configuration.ChromeConfig   : Creating new WebDriver session to: http://selenium-hub:4444/wd/hub
-2025-07-08 16:13:48.936  INFO 13084 --- [main] o.o.s.r.t.o.OpenTelemetryTracer          : Using OpenTelemetry for tracing
-2025-07-08 16:13:51.432  WARN 13084 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlerInternalController' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlingSchedulerServise' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'autoStartCrowlingService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'seleniumDataService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'remoteWebDriver' defined in class path resource [com/example/configuration/ChromeConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.openqa.selenium.remote.RemoteWebDriver]: Factory method 'remoteWebDriver' threw exception; nested exception is org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+2025-07-09 12:24:16.272  INFO 16408 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-07-09 12:24:16.539  INFO 16408 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-09 12:24:16.545  INFO 16408 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 12:24:16.547 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'appMVC'
+2025-07-09 12:24:16.548 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'chromeConfig'
+2025-07-09 12:24:16.549 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'schedulerConfig'
+2025-07-09 12:24:16.550 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'wedConfig'
+2025-07-09 12:24:16.550 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'crawlerInternalController'
+2025-07-09 12:24:16.554 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'crawlingSchedulerServise'
+2025-07-09 12:24:16.555 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'autoStartCrowlingService'
+2025-07-09 12:24:16.556 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'seleniumDataService'
+2025-07-09 12:24:16.557 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'chromeOptions'
+2025-07-09 12:24:16.564 DEBUG 16408 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Autowiring by type from bean name 'remoteWebDriver' via factory method to bean named 'chromeOptions'
+2025-07-09 12:24:16.564  INFO 16408 --- [main] com.example.configuration.ChromeConfig   : Creating new WebDriver session to: http://selenium-hub:4444/wd/hub
+2025-07-09 12:24:16.572  INFO 16408 --- [main] o.o.s.r.t.o.OpenTelemetryTracer          : Using OpenTelemetry for tracing
+2025-07-09 12:24:19.115  WARN 16408 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlerInternalController' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlingSchedulerServise' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'autoStartCrowlingService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'seleniumDataService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'remoteWebDriver' defined in class path resource [com/example/configuration/ChromeConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.openqa.selenium.remote.RemoteWebDriver]: Factory method 'remoteWebDriver' threw exception; nested exception is org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'DESKTOP-03IP502', ip: '192.168.0.104'
 Build info: version: '4.31.0', revision: '1ef9f18787*'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.13'
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
 Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --disable-dev-shm-usage, --headless=new, --window-size=1920,1080, --remote-allow-origins=*], extensions: []}}]}]
 Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --disable-dev-shm-usage, --headless=new, --window-size=1920,1080, --remote-allow-origins=*], extensions: []}}
-2025-07-08 16:13:51.432  INFO 13084 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-07-08 16:13:51.434  INFO 13084 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-07-08 16:13:51.445 DEBUG 13084 --- [main] ConditionEvaluationReportLoggingListener : 
+2025-07-09 12:24:19.116  INFO 16408 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 12:24:19.118  INFO 16408 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-09 12:24:19.128 DEBUG 16408 --- [main] ConditionEvaluationReportLoggingListener : 
 
 
 ============================
@@ -1366,7 +1370,7 @@ Negative matches:
 
    TaskSchedulingAutoConfiguration#taskScheduler:
       Did not match:
-         - @ConditionalOnBean (names: org.springframework.context.annotation.internalScheduledAnnotationProcessor; SearchStrategy: all) did not find any beans named org.springframework.context.annotation.internalScheduledAnnotationProcessor (OnBeanCondition)
+         - @ConditionalOnMissingBean (types: org.springframework.scheduling.annotation.SchedulingConfigurer,org.springframework.scheduling.TaskScheduler,java.util.concurrent.ScheduledExecutorService; SearchStrategy: all) found beans of type 'org.springframework.scheduling.TaskScheduler' taskScheduler (OnBeanCondition)
 
    ThymeleafAutoConfiguration:
       Did not match:
@@ -1482,7 +1486,7 @@ Unconditional classes:
 
 
 
-2025-07-08 16:13:51.460 ERROR 13084 --- [main] o.s.boot.SpringApplication               : Application run failed
+2025-07-09 12:24:19.138 ERROR 16408 --- [main] o.s.boot.SpringApplication               : Application run failed
 
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlerInternalController' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\controller\CrawlerInternalController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlingSchedulerServise' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'autoStartCrowlingService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'seleniumDataService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'remoteWebDriver' defined in class path resource [com/example/configuration/ChromeConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.openqa.selenium.remote.RemoteWebDriver]: Factory method 'remoteWebDriver' threw exception; nested exception is org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'DESKTOP-03IP502', ip: '192.168.0.104'
@@ -1510,7 +1514,7 @@ Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --d
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
-	at com.example.AppMVC.main(AppMVC.java:17) ~[classes/:na]
+	at com.example.AppMVC.main(AppMVC.java:19) ~[classes/:na]
 Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'crawlingSchedulerServise' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\CrawlingSchedulerServise.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'autoStartCrowlingService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\AutoStartCrowlingService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'seleniumDataService' defined in file [D:\Java\Тестовые_задания\от Леши\Код\V9\Micro_V9_3\autoCrawling\target\classes\com\example\service\SeleniumDataService.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'remoteWebDriver' defined in class path resource [com/example/configuration/ChromeConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.openqa.selenium.remote.RemoteWebDriver]: Factory method 'remoteWebDriver' threw exception; nested exception is org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'DESKTOP-03IP502', ip: '192.168.0.104'
 Build info: version: '4.31.0', revision: '1ef9f18787*'
@@ -1623,11 +1627,11 @@ Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --d
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:174) ~[selenium-remote-driver-4.31.0.jar:na]
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:152) ~[selenium-remote-driver-4.31.0.jar:na]
 	at com.example.configuration.ChromeConfig.remoteWebDriver(ChromeConfig.java:40) ~[classes/:na]
-	at com.example.configuration.ChromeConfig$$EnhancerBySpringCGLIB$$4c8e017d.CGLIB$remoteWebDriver$0(<generated>) ~[classes/:na]
-	at com.example.configuration.ChromeConfig$$EnhancerBySpringCGLIB$$4c8e017d$$FastClassBySpringCGLIB$$c538a2be.invoke(<generated>) ~[classes/:na]
+	at com.example.configuration.ChromeConfig$$EnhancerBySpringCGLIB$$27657296.CGLIB$remoteWebDriver$0(<generated>) ~[classes/:na]
+	at com.example.configuration.ChromeConfig$$EnhancerBySpringCGLIB$$27657296$$FastClassBySpringCGLIB$$d7d932d0.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.3.23.jar:5.3.23]
 	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-5.3.23.jar:5.3.23]
-	at com.example.configuration.ChromeConfig$$EnhancerBySpringCGLIB$$4c8e017d.remoteWebDriver(<generated>) ~[classes/:na]
+	at com.example.configuration.ChromeConfig$$EnhancerBySpringCGLIB$$27657296.remoteWebDriver(<generated>) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
