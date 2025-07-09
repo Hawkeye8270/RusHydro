@@ -19,7 +19,7 @@ const gesSelect = document.getElementById("ges");
 const dateSelect = document.getElementById("input_date")
 
 // Обработчик изменения выбора реки
-riverSelect.addEventListener("change", function() {
+riverSelect.addEventListener("change", function () {
     const selectedRiver = this.value;
 
     // Очищаем список ГЭС
@@ -119,62 +119,51 @@ function send_requestToDB() {
         });
 }
 
-export default {
-    methods: {
-        async startCrawler() {
-            try {
-                const response = await fetch('http://localhost:8082/api/crawler/manual-start', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    credentials: 'include' // Если нужны куки/авторизация
-                });
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+// Глобальная функция для кнопки краулера
+window.startCrawler = async function() {
+    console.log('Функция startCrawler вызвана'); // Логирование
 
-                const result = await response.json();
-                alert(JSON.stringify(result));
-            } catch (error) {
-                console.error('Ошибка:', error);
-                alert(`Ошибка: ${error.message}`);
-            }
+    try {
+        // 1. Подготовка запроса
+        const apiUrl = 'http://localhost:8082/api/crawler/manual-start';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            // credentials: 'include',
+            credentials: 'same-origin',
+            body: JSON.stringify({}) // Пустое тело запроса
+        };
+
+        console.log('Отправка запроса на:', apiUrl);
+
+        // 2. Отправка запроса
+        const response = await fetch(apiUrl, options);
+
+        console.log('Получен ответ. Статус:', response.status);
+
+        // 3. Обработка ответа
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Ошибка сервера ${response.status}: ${errorText}`);
         }
+
+        // const result = await response.json();
+        const result = await response.text();
+
+        // 4. Уведомление пользователя
+        alert(`Краулинг успешно запущен: ${JSON.stringify(result, null, 2)}`);
+        console.log('Результат:', result);
+
+    } catch (error) {
+        // 5. Обработка ошибок
+        console.error('Произошла ошибка:', error);
+        alert(`Ошибка при запуске краулинга: ${error.message}`);
     }
-}
-
-// export default {
-//     methods: {
-//         async startCrawler() {
-//             try {
-//                 const response = await fetch('http://localhost:8082/api/crawler/manual-start', {
-//                     method: 'POST',
-//                     headers: {
-//                         'Content-Type': 'application/json',
-//                         'Accept': 'application/json'
-//                     },
-//                     credentials: 'include' // Если нужны куки/авторизация
-//                 });
-//
-//                 if (!response.ok) {
-//                     throw new Error(`HTTP error! status: ${response.status}`);
-//                 }
-//
-//                 const result = await response.json();
-//                 alert(JSON.stringify(result));
-//             } catch (error) {
-//                 console.error('Ошибка:', error);
-//                 alert(`Ошибка: ${error.message}`);
-//             }
-//         }
-//     }
-// }
-
-
-
+};
 
 
 document.getElementById('input_date').max = new Date().toISOString().split('T')[0];
@@ -184,21 +173,21 @@ document.getElementById('input_dateFinish').max = new Date().toISOString().split
 
 // Дополнительно: сохраняем выбранную ГЭС в переменную
 let selectedGes = "";
-gesSelect.addEventListener("change", function() {
+gesSelect.addEventListener("change", function () {
     selectedGes = this.value;
     console.log("Выбрана ГЭС:", selectedGes);
 });
 
 // Дополнительно: сохраняем выбранную Реку в переменную
 let selectedRiver = "";
-riverSelect.addEventListener("change", function() {
+riverSelect.addEventListener("change", function () {
     selectedRiver = this.value;
     console.log("Выбрана Река:", selectedRiver);
 });
 
 // Дополнительно: сохраняем выбранную Дату в переменную
 let selectedDate = "";
-dateSelect.addEventListener("change", function() {
+dateSelect.addEventListener("change", function () {
     selectedDate = this.value;
     console.log("Выбрана Дата:", selectedDate);
 });

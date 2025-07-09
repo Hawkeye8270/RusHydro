@@ -90,8 +90,8 @@ services:
         condition: service_healthy
       selenium-hub:
         condition: service_healthy
-      chrome:
-        condition: service_healthy
+#      chrome:
+#        condition: service_healthy
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     networks:

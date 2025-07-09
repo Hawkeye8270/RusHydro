@@ -10,13 +10,13 @@ public class CorsConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
 //                .allowedOrigins("http://localhost:8081") // или "*" для разработки
                 .allowedOrigins(
-                        "http://localhost:8080",
-                        "http://localhost:8081"
+                        "http://localhost:8080"
+//                        "http://localhost:8081"
 //                        "http://localhost:8082"
                 )
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // добавили OPTIONS
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*") // разрешаем все заголовки
-                .exposedHeaders("Authorization", "Content-Disposition") // какие заголовки показывать клиенту
+                .exposedHeaders("Authorization", "Content-Disposition")
                 .allowCredentials(true)
                 .maxAge(3600); // кеширование CORS-правил на 1 час
     }

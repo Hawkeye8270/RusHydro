@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/crawler")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
 public class CrawlerInternalController {
 
     private final CrawlingSchedulerServise crawlerSchedulerService;
@@ -34,7 +34,7 @@ public class CrawlerInternalController {
 
         crawlerSchedulerService.scheduleCrawling();
 
-        return ResponseEntity.ok("Ручной запуск краулинга выполнен для33: "
+        return ResponseEntity.ok("Ручной запуск краулинга выполнен для9: "
                 + river + ", " + ges + ", " + date);
     }
 }

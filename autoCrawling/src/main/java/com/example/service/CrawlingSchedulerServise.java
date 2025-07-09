@@ -67,7 +67,7 @@ public class CrawlingSchedulerServise {
     // Бывший @Scheduled метод теперь вызывается вручную
     @Scheduled(fixedDelayString = "${crawling.interval}")
     public void scheduleCrawling() {
-        String river = "Волга2";
+        String river = "Волга";
         String ges = "Рыбинская";
         crawlingService.autoStartCrowling(river, ges, currentDate);
 
