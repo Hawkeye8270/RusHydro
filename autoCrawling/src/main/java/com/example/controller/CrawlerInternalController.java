@@ -34,7 +34,7 @@ public class CrawlerInternalController {
 
         crawlerSchedulerService.scheduleCrawling();
 
-        return ResponseEntity.ok("Ручной запуск краулинга выполнен для9: "
+        return ResponseEntity.ok("Ручной запуск краулинга выполнен для: "
                 + river + ", " + ges + ", " + date);
     }
 }
