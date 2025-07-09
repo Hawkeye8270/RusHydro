@@ -1,5 +1,6 @@
 package com.example.controller;
 
+
 import com.example.service.CrawlingSchedulerServise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,7 +35,20 @@ public class CrawlerInternalController {
 
         crawlerSchedulerService.scheduleCrawling();
 
-        return ResponseEntity.ok("Ручной запуск краулинга выполнен для9: "
+        return ResponseEntity.ok("Ручной запуск краулинга выполнен для: "
                 + river + ", " + ges + ", " + date);
     }
+
+
+
+        @Autowired
+        private CrawlerScheduler crawlerScheduler;
+        @PostMapping("/enable")
+        public ResponseEntity<String> enableCrawler(@RequestParam boolean enable) {
+            crawlerScheduler.enableCrawler(enable);
+            return ResponseEntity.ok("Состояние автосборщика: " + (enable ? "активирован" : "деактивирован"));
+        }
+
+
+
 }

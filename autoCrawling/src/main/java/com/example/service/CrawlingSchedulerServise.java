@@ -77,19 +77,4 @@ public class CrawlingSchedulerServise {
         log.info("Следующий запуск краулинга запланирован на: {}", currentDate);
     }
 
-
-
-
-//    @Scheduled(fixedDelayString = "${crawling.interval}") // Запуск каждые 30 min
-//    public void scheduleCrawling() {
-//        String river = "Волга";
-//        String ges = "Рыбинская";
-//
-//        crawlingService.autoStartCrowling(river, ges, currentDate);
-//
-//        // Увеличиваем дату на 1 месяц
-//        currentDate = currentDate.plusMonths(1);
-//
-//        log.info("Следующий запуск краулинга запланирован на: {}", currentDate);
-//    }
 }
