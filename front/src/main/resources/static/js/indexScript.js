@@ -119,6 +119,141 @@ function send_requestToDB() {
         });
 }
 
+async function loadCurrentParams() {
+    // 1. Подготовка URL с учетом другого порта (8083)
+    const apiUrl = 'http://localhost:8083/api/crawler/params';
+
+    // 2. Добавляем индикатор загрузки на кнопку
+    const refreshBtn = document.querySelector('button[onclick="loadCurrentParams()"]');
+    const originalBtnText = refreshBtn.textContent;
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = 'Загрузка...';
+
+    try {
+        console.log("Отправка запроса параметров на:", apiUrl);
+
+        // 3. Отправляем GET-запрос (аналогично send_requestToDB, но без тела)
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // Добавляем CORS заголовки при необходимости
+                'Accept': 'application/json'
+            },
+            credentials: 'include' // Если используются куки/сессии
+        });
+
+        // 4. Проверяем ответ
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        // 5. Парсим JSON
+        const data = await response.json();
+        console.log("Получены параметры:", data);
+
+        // 6. Обновляем интерфейс
+        const setValue = (id, value) => {
+            const element = document.getElementById(id);
+            if (element) element.textContent = value || 'Не указано';
+        };
+
+        const setInputValue = (id, value) => {
+            const input = document.getElementById(id);
+            if (input) input.value = value || '';
+        };
+
+        // Для отображения
+        setValue('currentRiver', data.river);
+        setValue('currentGes', data.ges);
+        setValue('currentDate', data.date);
+
+        // Для формы
+        setInputValue('river', data.river);
+        setInputValue('ges', data.ges);
+        setInputValue('date', formatDateForInput(data.date));
+
+        console.log("Параметры успешно обновлены");
+
+    } catch (error) {
+        console.error('Ошибка при загрузке параметров:', error);
+
+        // 7. Показываем пользователю ошибку
+        alert('Ошибка при загрузке параметров: ' + error.message);
+
+        // Устанавливаем значения ошибки
+        document.getElementById('currentRiver').textContent = 'Ошибка';
+        document.getElementById('currentGes').textContent = 'Ошибка';
+        document.getElementById('currentDate').textContent = 'Ошибка';
+    } finally {
+        // 8. Восстанавливаем кнопку
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = originalBtnText;
+    }
+}
+
+// Вспомогательная функция для форматирования даты
+function formatDateForInput(dateString) {
+    if (!dateString) return '';
+    try {
+        return new Date(dateString).toISOString().split('T')[0];
+    } catch (e) {
+        console.warn('Ошибка форматирования даты:', e);
+        return dateString; // Возвращаем как есть, если не удалось преобразовать
+    }
+}
+
+// async function loadCurrentParams() {
+//     try {
+//         // 1. Отправляем GET-запрос к API
+//         const response = await fetch('http://localhost:8082/api/crawler/params', {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             }
+//         });
+//
+//         // 2. Проверяем статус ответа
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//
+//         // 3. Парсим JSON ответ
+//         const data = await response.json();
+//         console.log("Получены параметры:", data);
+//
+//         // 4. Обновляем DOM-элементы
+//         document.getElementById('currentRiver').textContent = data.river || 'Не указано';
+//         document.getElementById('currentGes').textContent = data.ges || 'Не указано';
+//         document.getElementById('currentDate').textContent = data.date || 'Не указано';
+//
+//         // 5. Заполняем форму (если элементы существуют)
+//         if (document.getElementById('river')) {
+//             document.getElementById('river').value = data.river || '';
+//         }
+//         if (document.getElementById('ges')) {
+//             document.getElementById('ges').value = data.ges || '';
+//         }
+//         if (document.getElementById('date')) {
+//             document.getElementById('date').value = data.date || '';
+//         }
+//
+//         // 6. Уведомление об успехе
+//         console.log("Параметры успешно обновлены");
+//
+//     } catch (error) {
+//         console.error('Ошибка при загрузке параметров:', error);
+//
+//         // 7. Показываем пользователю сообщение об ошибке
+//         alert('Не удалось загрузить параметры. Проверьте консоль для подробностей.');
+//
+//         // 8. Можно установить значения по умолчанию при ошибке
+//         document.getElementById('currentRiver').textContent = 'Ошибка загрузки';
+//         document.getElementById('currentGes').textContent = 'Ошибка загрузки';
+//         document.getElementById('currentDate').textContent = 'Ошибка загрузки';
+//     }
+// }
+
 
 // // Глобальная функция для кнопки краулера
 // window.startCrawler = async function() {
