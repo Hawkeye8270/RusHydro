@@ -2,20 +2,23 @@ package com.example.controller;
 
 
 import com.example.service.CrawlingSchedulerServise;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
+@Slf4j
 @RequestMapping("/api/crawler")
-//@CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
-@CrossOrigin
+//@CrossOrigin
 public class CrawlerInternalController {
 
     private final Optional<CrawlingSchedulerServise> crawlerService;
@@ -26,6 +29,58 @@ public class CrawlerInternalController {
 
     @Value("${crawler.default.ges:Рыбинская}")
     private String defaultGes;
+
+    // ---------------------------------------------------------------------------------------------------------
+
+    @Value("${crawling.initial-date}")
+    private String initialDate;
+    private LocalDate currentDate;
+
+    @PostConstruct
+    public void init() {
+        this.currentDate = LocalDate.parse(initialDate);
+        this.currentParams = new CrawlerParams("Волга", "Рыбинская", currentDate);
+    }
+    // ---------------------------------------------------------------------------------------------------------
+
+//    @GetMapping("/params")
+//    public ResponseEntity<CrawlerParams> getCurrentParams() {
+//        return ResponseEntity.ok(currentParams);
+//    }
+
+    @GetMapping("/params")
+    public ResponseEntity<CrawlerParams> getCurrentParams() {
+        return ResponseEntity.ok(currentParams); // Убрали ручные заголовки
+    }
+
+
+//    @RequestMapping(value = "/params", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+//    public ResponseEntity<CrawlerParams> getCurrentParams(HttpServletRequest request) {
+//
+//        // Для OPTIONS запроса возвращаем только заголовки
+//        if (request.getMethod().equals("OPTIONS")) {
+//            return ResponseEntity.ok()
+//                    .header("Access-Control-Allow-Origin", "http://localhost:8080")
+//                    .header("Access-Control-Allow-Methods", "GET, OPTIONS")
+//                    .header("Access-Control-Allow-Headers", "content-type")
+//                    .header("Access-Control-Allow-Credentials", "true")
+//                    .build();
+//        }
+//        // Убедитесь, что метод возвращает правильные заголовки
+//        // Основная логика для GET запроса
+//        return ResponseEntity.ok()
+//                .header("Access-Control-Allow-Origin", "http://localhost:8080")
+//                .header("Access-Control-Allow-Credentials", "true")
+//                .body(currentParams);
+//    }
+
+//    @GetMapping("/params")
+//    public ResponseEntity<CrawlerParams> getCurrentParams() {
+
+//        return ResponseEntity.ok()
+//                .header("Access-Control-Allow-Credentials", "true")
+//                .body(currentParams);
+//    }
 
 
     @Autowired
@@ -43,10 +98,15 @@ public class CrawlerInternalController {
 //        this.currentParams = new CrawlerParams(defaultRiver, defaultGes, LocalDate.now());
 //    }
 
-    @GetMapping("/params")
-    public ResponseEntity<CrawlerParams> getCurrentParams() {
-        return ResponseEntity.ok(currentParams);
+
+    @RequestMapping(method = RequestMethod.OPTIONS)
+    public ResponseEntity<?> options() {
+        return ResponseEntity.ok().build();
     }
+
+
+
+
 
     @PostMapping("/params")
     public ResponseEntity<String> setParams(@RequestBody CrawlerParams params) {
@@ -83,13 +143,13 @@ public class CrawlerInternalController {
 //    private final CrawlingSchedulerServise crawlingSchedulerServise;
 
 
-    private LocalDate currentDate;
-    @Value("${crawling.initial-date}")
-    private String initialDate;
-    @PostConstruct
-    public void init() {
-        this.currentDate = LocalDate.parse(initialDate);
-    }
+//    private LocalDate currentDate;
+//    @Value("${crawling.initial-date}")
+//    private String initialDate;
+//    @PostConstruct
+//    public void init() {
+//        this.currentDate = LocalDate.parse(initialDate);
+//    }
 //    private CrawlerParams currentParams = new CrawlerParams("Волга", "Рыбинская", currentDate);
 
 

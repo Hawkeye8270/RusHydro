@@ -1,32 +1,47 @@
 package com.example.configuration;
 
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Configuration      // ????????????????? 11/07
 public class CorsConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-//                .allowedOrigins("http://localhost:8081") // или "*" для разработки
-                .allowedOrigins(
-                        "http://localhost:8080"
-//                        "http://localhost:8081"
-//                        "http://localhost:8082"
-                )
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*") // разрешаем все заголовки
-                .exposedHeaders("Authorization", "Content-Disposition")
-                .allowCredentials(true)
-                .maxAge(3600); // кеширование CORS-правил на 1 час
+    @Bean
+    public CorsFilter corsFilter() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("http://localhost:8080"); // Только фронтенд
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+
+        return new CorsFilter(source);
     }
 
-
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**")
-//                .allowedOrigins("http://localhost:8081") // Разрешить запросы с 8081
-//                .allowedMethods("GET", "POST", "PUT", "DELETE")
-//                .allowCredentials(true);
+//
+//    @Bean
+//    public FilterRegistrationBean<CorsFilter> corsFilter() {
+//        CorsConfiguration config = new CorsConfiguration();
+//        config.setAllowCredentials(true);
+//        config.addAllowedOrigin("http://localhost:8080");
+//        config.addAllowedHeader("*");
+//        config.addAllowedMethod("*");
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", config);
+//
+//        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(
+//                new CorsFilter(source)
+//        );
+//        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+//        return bean;
 //    }
 }

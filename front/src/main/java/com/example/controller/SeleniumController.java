@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-@CrossOrigin
+//@CrossOrigin
 public class SeleniumController {
 //    private static final Logger logger = LoggerFactory.getLogger(SeleniumController.class);
 

@@ -20,6 +20,15 @@ import java.util.concurrent.ScheduledFuture;
 @ConditionalOnProperty(name = "crawler.enabled", havingValue = "true", matchIfMissing = true)
 public class CrawlingSchedulerServise {
     private final AutoStartCrowlingService crawlingService;
+
+    public LocalDate getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(LocalDate currentDate) {
+        this.currentDate = currentDate;
+    }
+
     private LocalDate currentDate;
 
 //    @Autowired
@@ -43,13 +52,6 @@ public class CrawlingSchedulerServise {
             this.currentDate = LocalDate.now();
         }
     }
-//    @Autowired
-//    public CrawlingSchedulerServise(AutoStartCrowlingService crawlingService,
-//                                    TaskScheduler taskScheduler) {
-//        this.crawlingService = crawlingService;
-//        this.taskScheduler = taskScheduler;
-//        this.currentDate = LocalDate.parse(initialDate);
-//    }
 
     @Value("${crawling.initial-date}")
     private String initialDate;

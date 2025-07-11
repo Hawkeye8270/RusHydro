@@ -119,78 +119,214 @@ function send_requestToDB() {
         });
 }
 
-async function loadCurrentParams() {
-    // 1. Подготовка URL с учетом другого порта (8083)
-    const apiUrl = 'http://localhost:8083/api/crawler/params';
+function loadCurrentParams() {
+    const button = document.getElementById('loadCurrentParams');
+    const originalText = button.textContent;
 
-    // 2. Добавляем индикатор загрузки на кнопку
+    // Обновляем состояние кнопки
+    button.disabled = true;
+    button.textContent = 'Загрузка...';
+
+    console.log("Запрашиваю текущие параметры...");
+
+    fetch('http://localhost:8082/api/crawler/params', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        // credentials: 'include' // если используется аутентификация
+
+    })
+        .then(response => {
+            if (!response.ok) throw new Error(`Ошибка HTTP! Статус: ${response.status}`);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Получены параметры:", data);
+
+            // Форматируем дату из массива [2020,3,1] в строку "01.03.2020"
+            const formattedDate = data.date ?
+                `${String(data.date[2]).padStart(2, '0')}.${String(data.date[1]).padStart(2, '0')}.${data.date[0]}` :
+                'Не указано';
+
+            // Заполняем данные в интерфейсе
+            document.getElementById('currentRiver').textContent = data.river || 'Не указано';
+            document.getElementById('currentGes').textContent = data.ges || 'Не указано';
+            document.getElementById('currentDate').textContent = formattedDate;
+
+            console.log("Интерфейс успешно обновлен");
+        })
+        .catch(error => {
+            console.error("Ошибка при загрузке параметров:", error);
+
+            // Показываем ошибки в интерфейсе
+            document.getElementById('currentRiver').textContent = 'Ошибка';
+            document.getElementById('currentGes').textContent = 'Ошибка';
+            document.getElementById('currentDate').textContent = 'Ошибка';
+
+            alert(`Ошибка при загрузке параметров: ${error.message}\nПроверьте:\n1. Сервер на порту 8082\n2. Консоль разработчика (F12)`);
+        })
+        .finally(() => {
+            // Восстанавливаем кнопку в любом случае
+            button.disabled = false;
+            button.textContent = originalText;
+        });
+}
+
+
+
+/*
+async function loadCurrentParams() {
+    // const apiUrl = 'http://localhost:8082/api/crawler/params';
+    const apiUrl = 'http://localhost:8082/api/crawler/params';
     const refreshBtn = document.querySelector('button[onclick="loadCurrentParams()"]');
-    const originalBtnText = refreshBtn.textContent;
-    refreshBtn.disabled = true;
-    refreshBtn.textContent = 'Загрузка...';
 
     try {
-        console.log("Отправка запроса параметров на:", apiUrl);
-
-        // 3. Отправляем GET-запрос (аналогично send_requestToDB, но без тела)
-        const response = await fetch(apiUrl, {
+        const response = await fetch('http://localhost:8082/api/crawler/params', {
             method: 'GET',
+            mode: 'cors',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
-                // Добавляем CORS заголовки при необходимости
                 'Accept': 'application/json'
-            },
-            credentials: 'include' // Если используются куки/сессии
+            }
         });
 
-        // 4. Проверяем ответ
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        // 5. Парсим JSON
+        console.log('Response headers:', [...response.headers.entries()]);
         const data = await response.json();
-        console.log("Получены параметры:", data);
-
-        // 6. Обновляем интерфейс
-        const setValue = (id, value) => {
-            const element = document.getElementById(id);
-            if (element) element.textContent = value || 'Не указано';
-        };
-
-        const setInputValue = (id, value) => {
-            const input = document.getElementById(id);
-            if (input) input.value = value || '';
-        };
-
-        // Для отображения
-        setValue('currentRiver', data.river);
-        setValue('currentGes', data.ges);
-        setValue('currentDate', data.date);
-
-        // Для формы
-        setInputValue('river', data.river);
-        setInputValue('ges', data.ges);
-        setInputValue('date', formatDateForInput(data.date));
-
-        console.log("Параметры успешно обновлены");
+        console.log('Data received:', data);
 
     } catch (error) {
-        console.error('Ошибка при загрузке параметров:', error);
+        console.error('Full error:', error);
+    }
 
-        // 7. Показываем пользователю ошибку
-        alert('Ошибка при загрузке параметров: ' + error.message);
 
-        // Устанавливаем значения ошибки
-        document.getElementById('currentRiver').textContent = 'Ошибка';
-        document.getElementById('currentGes').textContent = 'Ошибка';
-        document.getElementById('currentDate').textContent = 'Ошибка';
-    } finally {
-        // 8. Восстанавливаем кнопку
+    // try {
+    //     refreshBtn.disabled = true;
+    //     refreshBtn.textContent = 'Загрузка...';
+    //
+    //     const response = await fetch(apiUrl, {
+    //         method: 'GET',
+    //         mode: 'cors',
+    //         credentials: 'include',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         }
+    //     });
+    //
+    //     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    //
+    //     const data = await response.json();
+    //     updateUI(data);
+    //
+    // } catch (error) {
+    //     console.error('Ошибка:', error);
+    //     showError();
+    // }
+
+    finally {
         refreshBtn.disabled = false;
-        refreshBtn.textContent = originalBtnText;
+        refreshBtn.textContent = 'Обновить параметры';
     }
 }
+
+function updateUI(data) {
+    const setValue = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value || 'Не указано';
+    };
+
+    setValue('currentRiver', data.river);
+    setValue('currentGes', data.ges);
+    setValue('currentDate', data.date);
+}
+
+function showError() {
+    const elements = ['currentRiver', 'currentGes', 'currentDate'];
+    elements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = 'Ошибка';
+    });
+    alert('Сервер недоступен2. Проверьте:\n1. Запущен ли сервер на порту 8082\n2. Консоль разработчика (F12)');
+}
+
+ */
+
+// async function loadCurrentParams() {
+//     // 1. Подготовка URL с учетом другого порта (8083)
+//     const apiUrl = 'http://localhost:8083/api/crawler/params';
+//
+//     // 2. Добавляем индикатор загрузки на кнопку
+//     const refreshBtn = document.querySelector('button[onclick="loadCurrentParams()"]');
+//     const originalBtnText = refreshBtn.textContent;
+//     refreshBtn.disabled = true;
+//     refreshBtn.textContent = 'Загрузка...';
+//
+//     try {
+//         console.log("Отправка запроса параметров на:", apiUrl);
+//
+//         // 3. Отправляем GET-запрос (аналогично send_requestToDB, но без тела)
+//         const response = await fetch(apiUrl, {
+//             method: 'GET',
+//             mode: 'cors',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 // Добавляем CORS заголовки при необходимости
+//                 'Accept': 'application/json'
+//             },
+//             credentials: 'include' // Если используются куки/сессии
+//         });
+//
+//         // 4. Проверяем ответ
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//
+//         // 5. Парсим JSON
+//         const data = await response.json();
+//         console.log("Получены параметры:", data);
+//
+//         // 6. Обновляем интерфейс
+//         const setValue = (id, value) => {
+//             const element = document.getElementById(id);
+//             if (element) element.textContent = value || 'Не указано';
+//         };
+//
+//         const setInputValue = (id, value) => {
+//             const input = document.getElementById(id);
+//             if (input) input.value = value || '';
+//         };
+//
+//         // Для отображения
+//         setValue('currentRiver', data.river);
+//         setValue('currentGes', data.ges);
+//         setValue('currentDate', data.date);
+//
+//         // Для формы
+//         setInputValue('river', data.river);
+//         setInputValue('ges', data.ges);
+//         setInputValue('date', formatDateForInput(data.date));
+//
+//         console.log("Параметры успешно обновлены");
+//
+//     } catch (error) {
+//         console.error('Ошибка при загрузке параметров:', error);
+//
+//         // 7. Показываем пользователю ошибку
+//         alert('Ошибка при загрузке параметров: ' + error.message);
+//
+//         // Устанавливаем значения ошибки
+//         document.getElementById('currentRiver').textContent = 'Ошибка';
+//         document.getElementById('currentGes').textContent = 'Ошибка';
+//         document.getElementById('currentDate').textContent = 'Ошибка';
+//     } finally {
+//         // 8. Восстанавливаем кнопку
+//         refreshBtn.disabled = false;
+//         refreshBtn.textContent = originalBtnText;
+//     }
+// }
 
 // Вспомогательная функция для форматирования даты
 function formatDateForInput(dateString) {
