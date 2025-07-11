@@ -55,7 +55,7 @@ public class CrawlingSchedulerServise {
 
     // ------ РАНДОМНЫЙ ИНТЕРВАЛ ЗАПУСКА АВТОСБОРЩИКА ---------------------------------------------------------------------------------------------------
 
-    @Value("${crawling.interval:120000}") // 120000 мс = 2 минуты
+    @Value("${crawling.interval:600000}") // 600000 мс = 10 минут
     private long baseInterval;
 
     private long nextExecutionTime = System.currentTimeMillis();
