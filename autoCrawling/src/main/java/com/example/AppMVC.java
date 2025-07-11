@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 
+
+
 @EnableScheduling         // АВТОСБОРЩИК ДЛЯ БД
 @EnableJpaRepositories
 @SpringBootApplication
@@ -15,5 +17,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class AppMVC {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(AppMVC.class, args);
+
     }
 }
