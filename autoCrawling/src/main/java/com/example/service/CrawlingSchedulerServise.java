@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 @Service
@@ -40,8 +41,8 @@ public class CrawlingSchedulerServise {
     @Value("${crawling.initial-date}")
     private String initialDate;
 
-    @Value("${crawling.interval}")
-    private long interval;
+//    @Value("${crawling.interval}")
+//    private long interval;
 
 
     private CrawlerParams currentParams;
@@ -52,14 +53,56 @@ public class CrawlingSchedulerServise {
         this.currentParams = new CrawlerParams("Волга", "Рыбинская", currentDate);
     }
 
-    @Scheduled(fixedRateString = "${crawler.interval:300000}")
+    // ------ РАНДОМНЫЙ ИНТЕРВАЛ ЗАПУСКА АВТОСБОРЩИКА ---------------------------------------------------------------------------------------------------
+
+    @Value("${crawling.interval:120000}") // 120000 мс = 2 минуты
+    private long baseInterval;
+
+    private long nextExecutionTime = System.currentTimeMillis();
+
+    @Scheduled(fixedRate = 10_000) // Проверяем каждые 10 секунд
     public void scheduledCrawling() {
-        executeCrawling("Волга", "Рыбинская", currentDate);
-        currentDate = currentDate.plusMonths(1);
+        long now = System.currentTimeMillis();
+        if (now >= nextExecutionTime) {
+            executeCrawling("Волга", "Рыбинская", currentDate);
+            currentDate = currentDate.plusMonths(1);
+
+            // Случайный интервал (±2 минуты)
+            long randomOffset = ThreadLocalRandom.current().nextLong(-120_000, 120_000);
+            nextExecutionTime = now + baseInterval + randomOffset;
+        }
     }
+
+//    private void executeCrawling(String river, String station, LocalDate date) {
+//        System.out.println("Crawling at: " + date + " with river: " + river + ", station: " + station);
+//    }
 
     public void executeCrawling(String river, String ges, LocalDate date) {
         crawlingService.autoStartCrowling(river, ges, date);
         log.info("Краулинг выполнен: {} {} {}", river, ges, date);
     }
+
+//-------------------------------------------------------------------------------------------------------------------------------
+    /*
+    // ИНТЕРВАЛ ЗАПУСКА 3 МИН +-1 МИН.
+//    @Scheduled(fixedDelayString = "#{T(java.util.concurrent.ThreadLocalRandom).current().nextLong(${crawling.interval:180000} - 60000, ${crawling.interval:180000} + 60000)}")
+    @Scheduled(fixedDelayString = "#{T(java.util.concurrent.ThreadLocalRandom).current().nextLong(" +
+            "${crawling.interval:180000} - 120000, " +  // Минимум: интервал - 2 минуты
+            "${crawling.interval:180000} + 120000" +     // Максимум: интервал + 2 минуты
+            ")}")
+    public void scheduledCrawling() {
+        executeCrawling("Волга", "Рыбинская", currentDate);
+        currentDate = currentDate.plusMonths(1);
+    }
+
+     */
+
+    // ФИКСИРОВАННЫЙ ИНТЕРВАЛ
+//    @Scheduled(fixedRateString = "${crawler.interval:60000}")
+//    public void scheduledCrawling() {
+//        executeCrawling("Волга", "Рыбинская", currentDate);
+//        currentDate = currentDate.plusMonths(1);
+//    }
+
+
 }

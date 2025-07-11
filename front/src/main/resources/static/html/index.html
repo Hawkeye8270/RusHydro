@@ -8,7 +8,7 @@
 <body>
 
 <!--<tbody>-->
-<h1>Выбор реки и ГЭС</h1>
+<h2>Выбор реки и ГЭС</h2>
 
 <div class="select-container">
     <label for="river">Река:</label>
@@ -35,6 +35,9 @@
     </select>
 </div>
 
+<tr>-------------------------------------------------------------------------------------------------</tr>
+
+<h2>Запрос уровня за 30 дней (для пополнения пропусков в БД)</h2>
 <div class="col-sm-2">
     <label class="date" for="input_date">Выберите дату запроса:</label>
     <input
@@ -47,12 +50,14 @@
 </div>
 
 <td>
-    <button id='send_request' onclick='send_request()'>Запрос данный на RusHydro (за 30 дней)</button>
+    <button id='send_request' onclick='send_request()'>Запрос данных на RusHydro (за 30 дней)</button>
 </td>
 
 <br>
 
 <tr>-------------------------------------------------------------------------------------------------</tr>
+
+<h2>Запрос уровня за указанный периуд</h2>
 
 <div class="col-sm-4">
     <label class="date" for="input_dateStart">Начальная дата для графика:</label>
@@ -91,10 +96,10 @@
     </button>
 </div>
 
-<h1>Управление краулером</h1>
+<h2>Сведения о сборщике данных</h2>
 
 <div id="currentParams">
-    <h2>Текущие параметры:</h2>
+    <h3>Текущие параметры сборшика данных:</h3>
     <p>Река: <span id="currentRiver"></span></p>
     <p>ГЭС: <span id="currentGes"></span></p>
     <p>Дата: <span id="currentDate"></span></p>
@@ -103,69 +108,6 @@
 <div class="button-container">
     <button id='loadCurrentParams' onclick='loadCurrentParams()'>Обновить параметры3</button>
 </div>
-
-
-
-<!--<button type="button" id="refreshParamsBtn">Обновить параметры!!</button>-->
-
-<!--<script>-->
-<!--    document.getElementById('refreshParamsBtn').addEventListener('click', loadCurrentParams);-->
-<!--</script>-->
-
-
-<!--</form>-->
-
-<!--<button onclick="startCrawling()">Запустить краулинг</button>-->
-
-<!--<script>-->
-<!--    // Загрузить текущие параметры при загрузке страницы-->
-<!--    // document.addEventListener('DOMContentLoaded', loadCurrentParams);-->
-
-<!--    // async function loadCurrentParams() {-->
-<!--    //     try {-->
-<!--    //         const response = await axios.get('http://localhost:8082/api/crawler/params');-->
-<!--    //         document.getElementById('currentRiver').textContent = response.data.river;-->
-<!--    //         document.getElementById('currentGes').textContent = response.data.ges;-->
-<!--    //         document.getElementById('currentDate').textContent = response.data.date;-->
-<!--    //-->
-<!--    //         // Установить значения в форму-->
-<!--    //         document.getElementById('river').value = response.data.river;-->
-<!--    //         document.getElementById('ges').value = response.data.ges;-->
-<!--    //         document.getElementById('date').value = response.data.date;-->
-<!--    //     } catch (error) {-->
-<!--    //         console.error('Ошибка при загрузке параметров:', error);-->
-<!--    //     }-->
-<!--    // }-->
-
-<!--    async function updateParams() {-->
-<!--        const params = {-->
-<!--            river: document.getElementById('riverNew').value,-->
-<!--            ges: document.getElementById('gesNew').value,-->
-<!--            date: document.getElementById('dateNew').value-->
-<!--        };-->
-
-<!--        try {-->
-<!--            // await axios.post('/api/crawler/params', params);-->
-<!--            await axios.post('http://localhost:8082/api/crawler/params', params);-->
-<!--            loadCurrentParams(); // Обновить отображение-->
-<!--            alert('Параметры успешно обновлены');-->
-<!--        } catch (error) {-->
-<!--            console.error('Ошибка при обновлении параметров:', error);-->
-<!--            alert('Ошибка при обновлении параметров');-->
-<!--        }-->
-<!--    }-->
-
-<!--    async function startCrawling() {-->
-<!--        try {-->
-<!--            // const response = await axios.post('/api/crawler/start');-->
-<!--            const response = await axios.post('http://localhost:8082/api/crawler/start');-->
-<!--            alert(response.data);-->
-<!--        } catch (error) {-->
-<!--            console.error('Ошибка при запуске краулинга:', error);-->
-<!--            alert('Ошибка при запуске краулинга');-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
 
 
 <!-- Подключаем JavaScript -->

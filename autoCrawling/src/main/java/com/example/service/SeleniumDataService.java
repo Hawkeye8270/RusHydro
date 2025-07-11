@@ -92,19 +92,6 @@ public class SeleniumDataService {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
     }
 
-//    public WebElement getChildElem(String xpath, WebElement parentElem) {
-//        return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(parentElem, By.xpath(xpath)));
-//    }
-
-//    public String getChildElemText(String xpath, WebElement parentElem) {
-//        try {
-//            return getChildElem(xpath, parentElem).getText();
-//        } catch (Exception ex) {
-//            log.warn("Child element not located: {}", ex.getMessage());
-//            return "";
-//        }
-//    }
-
     public void click(WebElement webElem) throws InterruptedException {
         Thread.sleep(500);
         ((JavascriptExecutor) driver).executeScript(
