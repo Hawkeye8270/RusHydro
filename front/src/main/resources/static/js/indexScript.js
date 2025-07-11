@@ -61,16 +61,19 @@ function send_request() {
     console.log("Отправка данных:", requestData);
 
     // Вариант 1: POST запрос с JSON в теле
-    fetch('/api/request', {
+    // fetch('http://localhost:8081/api/request', {
+    fetch('http://localhost:8082/api/crawler/request', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(requestData)
     })
+
         .then(response => {
             if (!response.ok) throw new Error('Ошибка сети');
-            return response.text();
+            // return response.text();
+            return response.json();  // Парсим JSON, а не текст
         })
         .then(data => {
             console.log("Успех:", data);
@@ -80,7 +83,6 @@ function send_request() {
             console.error("Ошибка:", error);
         });
 }
-
 
 function send_requestToDB() {
     const requestDataToBD = {
@@ -173,7 +175,6 @@ function loadCurrentParams() {
             button.textContent = originalText;
         });
 }
-
 
 
 /*

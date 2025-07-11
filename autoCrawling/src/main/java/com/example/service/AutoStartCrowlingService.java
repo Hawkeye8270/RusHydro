@@ -30,7 +30,7 @@ public class AutoStartCrowlingService {
         this.dataDBRepository = dataDBRepository;
     }
 
-    public void autoStartCrowling(String river, String ges, LocalDate date) {
+    public static void autoStartCrowling(String river, String ges, LocalDate date) {
         try {
             String year = String.valueOf(date.getYear());
             String month = getRussianMonthName(date.getMonth());
@@ -53,7 +53,30 @@ public class AutoStartCrowlingService {
         }
     }
 
-    private String getRussianMonthName(Month month) {
+    public static void startCrowling(String river, String ges, String year, String month, String day) {
+        try {
+            seleniumDS.start(true);
+            seleniumDS.openPage(URL_TEST);
+            closeCookie();
+            setRiver(river);
+            setGes(ges);
+            setPeriodOfDays();
+            setMonthAndYearAndDate(year, month, day);
+
+            DataRepository.createNewData(river, ges, collectionDataFromGes(ges, river, year));
+
+            seleniumDS.waitSomeTime(2000);
+//            seleniumDS.stop();
+
+        } catch (Exception ex) {
+            ex.getMessage();
+        } finally {
+            seleniumDS.stop();
+        }
+    }
+
+
+    private static String getRussianMonthName(Month month) {
         return switch (month) {
             case JANUARY -> "Январь";
             case FEBRUARY -> "Февраль";

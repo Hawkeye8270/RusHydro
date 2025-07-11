@@ -32,8 +32,8 @@ public class AppMVC {
     private static final String DB_PASSWORD = "123";
     private static final String DB_NAME = "rushydro";
     private static final String SAVE_PATH = "/app/dumps/"; // путь внутри контейнера
-//    private static final int DUMP_INTERVAL_HOURS = 3;
-    private static final int DUMP_INTERVAL_MINUTES = 2;   // Интервал в минутах
+    private static final int DUMP_INTERVAL_HOURS = 1;
+//    private static final int DUMP_INTERVAL_MINUTES = 2;   // Интервал в минутах
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(AppMVC.class, args);
@@ -62,10 +62,10 @@ public class AppMVC {
                     }
                 },
                 0, // начальная задержка
-//                DUMP_INTERVAL_HOURS,
-//                TimeUnit.HOURS
-                DUMP_INTERVAL_MINUTES,
-                TimeUnit.MINUTES
+                DUMP_INTERVAL_HOURS,
+                TimeUnit.HOURS
+//                DUMP_INTERVAL_MINUTES,
+//                TimeUnit.MINUTES
         );
 
     }
