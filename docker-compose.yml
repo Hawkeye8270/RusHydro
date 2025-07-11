@@ -25,6 +25,8 @@ services:
       context: ./backEnd  # Путь к папке с Dockerfile бэкенда
     ports:
       - "8081:8081"  # Пробрасываем порт бэкенда
+    volumes:
+      - ./dumps:/app/dumps  # монтируем папку с дампами на хост
     depends_on:
       db:
         condition: service_healthy
