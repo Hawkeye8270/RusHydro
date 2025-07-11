@@ -5,15 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.concurrent.ScheduledFuture;
+
 
 @Service
 @Slf4j
@@ -25,11 +22,11 @@ public class CrawlingSchedulerServise {
         return currentDate;
     }
 
-    public void setCurrentDate(LocalDate currentDate) {
-        this.currentDate = currentDate;
-    }
+//    public void setCurrentDate(LocalDate currentDate) {
+//        this.currentDate = currentDate;
+//    }
 
-    private LocalDate currentDate;
+    public LocalDate currentDate;
 
 //    @Autowired
 //    public CrawlingSchedulerServise(AutoStartCrowlingService crawlingService, TaskScheduler taskScheduler) {
@@ -73,13 +70,13 @@ public class CrawlingSchedulerServise {
     }
 
 // --------------------------------------------------------------------------------------------------------
-    private TaskScheduler taskScheduler;
-    private ScheduledFuture<?> scheduledTask;
+//    private TaskScheduler taskScheduler;
+//    private ScheduledFuture<?> scheduledTask;
 
-    @Autowired
-    public void CrawlingSchedulerService(TaskScheduler taskScheduler) {
-        this.taskScheduler = taskScheduler;
-    }
+//    @Autowired
+//    public void CrawlingSchedulerService(TaskScheduler taskScheduler) {
+//        this.taskScheduler = taskScheduler;
+//    }
 
 
     // Метод для @Scheduled (без параметров)
@@ -90,11 +87,11 @@ public class CrawlingSchedulerServise {
 //        currentDate = currentDate.plusMonths(1);
 //    }
 
-    // Метод для ручного вызова (с параметрами)
-    public void scheduleCrawling(String river, String ges, LocalDate date) {
-        crawlingService.autoStartCrowling(river, ges, date);
-        log.info("Краулинг выполнен для: {}, {}, {}", river, ges, date);
-    }
+//    // Метод для ручного вызова (с параметрами)
+//    public void scheduleCrawling(String river, String ges, LocalDate date) {
+//        crawlingService.autoStartCrowling(river, ges, date);
+//        log.info("Краулинг выполнен для: {}, {}, {}", river, ges, date);
+//    }
 
     @Scheduled(fixedRateString = "${crawler.interval:300000}")
     public void scheduledCrawling() {
