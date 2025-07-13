@@ -1,8 +1,9 @@
 package com.example.controller;
 
 
+import com.example.repository.CurretnGesAndRiver;
 import com.example.service.AutoStartCrowlingService;
-import com.example.service.CrawlingSchedulerServise;
+import com.example.service.CrawlingSchedulerService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,20 +25,33 @@ public class CrawlerInternalController {
 //    private String initialDate;
     private LocalDate currentDate;
 
-    private final CrawlingSchedulerServise crawlerService;
+    private final CrawlingSchedulerService crawlerService;
     private CrawlerParams currentParams;
 
+    // -------------------------------------------------------------------------------------------------
+
+    CurretnGesAndRiver curretnGesAndRiver = new CurretnGesAndRiver();
+//    private String initialDate = curretnGesAndRiver.getInitialDate();
+
+    private String river = curretnGesAndRiver.getRiver();
+    private String ges = curretnGesAndRiver.getStation();
+//    private long baseInterval = curretnData.getBaseInterval();
+// -------------------------------------------------------------------------------------------------
+
+
+
+
     @Autowired
-    public CrawlerInternalController(CrawlingSchedulerServise crawlerService,
+    public CrawlerInternalController(CrawlingSchedulerService crawlerService,
                                      @Value("${crawling.initial-date}") String initialDate) {
         this.crawlerService = crawlerService;
         this.currentDate = LocalDate.parse(initialDate);
-        this.currentParams = new CrawlerParams("Волга", "Рыбинская", currentDate);
+//        this.currentParams = new CrawlerParams("Волга", "Жигулевская", currentDate);
+        this.currentParams = new CrawlerParams(river, ges, currentDate);
     }
 
     @GetMapping("/params")
     public ResponseEntity<CrawlerParams> getCurrentParams() {
-        // Берем currentDate из сервиса
         currentParams.setDate(crawlerService.getCurrentDate());
         return ResponseEntity.ok(currentParams);
     }

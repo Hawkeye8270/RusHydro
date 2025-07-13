@@ -20,6 +20,7 @@ import java.util.Map;
 @Slf4j
 public class DataRepository {
 
+
     public static void createNewData(String river, String ges, Map<Date, Float> mapOfDate) {
 
         Map<Date, Float> map = mapOfDate;
