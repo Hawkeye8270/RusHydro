@@ -6,7 +6,7 @@ services:
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: "123"  # Пароль в кавычках, если содержит цифры
+      POSTGRES_PASSWORD: "123"
       POSTGRES_DB: rushydro
     ports:
       - "5432:5432"
@@ -22,11 +22,11 @@ services:
 
   backend:
     build:
-      context: ./backEnd  # Путь к папке с Dockerfile бэкенда
+      context: ./backEnd
     ports:
-      - "8081:8081"  # Пробрасываем порт бэкенда
+      - "8081:8081"
     volumes:
-      - ./dumps:/app/dumps  # монтируем папку с дампами на хост
+      - ./dumps:/app/dumps
     depends_on:
       db:
         condition: service_healthy
@@ -39,12 +39,12 @@ services:
 
   frontend:
     build:
-      context: ./front  # Путь к папке с Dockerfile фронтенда
+      context: ./front
     container_name: front
     ports:
-      - "8080:8080"  # Пробрасываем порт фронтенда
+      - "8080:8080"
     depends_on:
-      - backend  # Фронтенд запустится только после бэкенда
+      - backend
     restart: unless-stopped
     networks:
       - selenium-network
@@ -83,7 +83,7 @@ services:
 
   autocrawling:
     build:
-      context: ./autoCrawling  # Изменено на папку autoCrawling
+      context: ./autoCrawling
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
@@ -92,8 +92,6 @@ services:
         condition: service_healthy
       selenium-hub:
         condition: service_healthy
-#      chrome:
-#        condition: service_healthy
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     networks:

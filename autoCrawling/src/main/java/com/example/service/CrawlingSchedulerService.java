@@ -19,46 +19,12 @@ public class CrawlingSchedulerService {
 
     private final AutoStartCrowlingService crawlingService;
 
-//    @Value("${crawling.initial-date}")
-//    private String initialDate;
-//
-//    @Value("${crawling.river:Волга}")
-//    private String river;
-//
-//    @Value("${crawling.station:Рыбинская}")
-//    private String station;
-//
-//    @Value("${crawling.interval:300000}") // 5 минут по умолчанию
-//    private long baseInterval;
-//
-
     CurretnGesAndRiver curretnGesAndRiver = new CurretnGesAndRiver();
-
-//    private String initialDate = curretnData.getInitialDate();
     private @Value("${crawling.initial-date}") String initialDate;
-
-    //    private long baseInterval = curretnData.getBaseInterval();
     private @Value("${crawling.interval}") long baseInterval;
     private String river = curretnGesAndRiver.getRiver();
     private String station = curretnGesAndRiver.getStation();
 
-
-//
-//    public String getRiver() {
-//        return river;
-//    }
-//
-//    public void setRiver(String river) {
-//        this.river = river;
-//    }
-//
-//    public String getStation() {
-//        return station;
-//    }
-//
-//    public void setStation(String station) {
-//        this.station = station;
-//    }
 
     private LocalDate currentDate;
     private long nextExecutionTime = System.currentTimeMillis();

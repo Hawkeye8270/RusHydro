@@ -18,27 +18,16 @@ import java.time.LocalDate;
 @Slf4j
 @RequestMapping("/api/crawler")
 public class CrawlerInternalController {
-
     private static final Logger logger = LoggerFactory.getLogger(CrawlerInternalController.class);
-
-    //    @Value("${crawling.initial-date}")
-//    private String initialDate;
     private LocalDate currentDate;
-
     private final CrawlingSchedulerService crawlerService;
     private CrawlerParams currentParams;
 
     // -------------------------------------------------------------------------------------------------
-
     CurretnGesAndRiver curretnGesAndRiver = new CurretnGesAndRiver();
-//    private String initialDate = curretnGesAndRiver.getInitialDate();
-
     private String river = curretnGesAndRiver.getRiver();
     private String ges = curretnGesAndRiver.getStation();
-//    private long baseInterval = curretnData.getBaseInterval();
 // -------------------------------------------------------------------------------------------------
-
-
 
 
     @Autowired
@@ -46,7 +35,6 @@ public class CrawlerInternalController {
                                      @Value("${crawling.initial-date}") String initialDate) {
         this.crawlerService = crawlerService;
         this.currentDate = LocalDate.parse(initialDate);
-//        this.currentParams = new CrawlerParams("Волга", "Жигулевская", currentDate);
         this.currentParams = new CrawlerParams(river, ges, currentDate);
     }
 
@@ -71,13 +59,7 @@ public class CrawlerInternalController {
         String dayTemp = data.getRequestDay(data.getDate());        // "05"
         String day = String.valueOf(Integer.parseInt(dayTemp));     // "5"
 
-//        System.out.println("Год - " + year);
-//        System.out.println("Месяц - " + monthName);
-//        System.out.println("день - " + day);
-
         AutoStartCrowlingService.startCrowling(data.getRiver(), data.getGes(), year, monthName, day);
-
-//        SeleniumRequestDataService.startCrowling(data.getRiver(), data.getGes(), year, monthName, day);
 
         return ResponseEntity.ok("Данные получены");
     }
@@ -90,6 +72,4 @@ public class CrawlerInternalController {
         int month = Integer.parseInt(monthNumber);
         return months[month - 1];
     }
-
-
 }
