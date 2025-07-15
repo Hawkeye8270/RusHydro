@@ -20,7 +20,7 @@ public class PostgresDumpService {
     private final String savePath;
 
     public PostgresDumpService(String dbHost, String dbPort, String dbUser,
-                          String dbPassword, String dbName, String savePath) {
+                               String dbPassword, String dbName, String savePath) {
         this.dbHost = dbHost;
         this.dbPort = dbPort;
         this.dbUser = dbUser;

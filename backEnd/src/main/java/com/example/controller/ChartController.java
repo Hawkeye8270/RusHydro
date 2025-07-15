@@ -4,8 +4,6 @@ import com.example.entity.Data;
 import com.example.repository.DataDBRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -13,14 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -28,9 +21,8 @@ import java.util.stream.Collectors;
 
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:8080")  // ??????????????????? 01/07
 @Slf4j
-@CrossOrigin            // ??????????????????????????????????????????
+@CrossOrigin
 public class ChartController {
     private final DataDBRepository dataDBRepository;
     private final ObjectMapper objectMapper;
@@ -39,32 +31,6 @@ public class ChartController {
         this.dataDBRepository = dataDBRepository;
         this.objectMapper = objectMapper;
     }
-
-//    @GetMapping(value = "/chart", produces = "text/html;charset=UTF-8")
-////    @CrossOrigin                      //(origins = "http://localhost:8080") // Укажите адрес фронтенда      // ?????????????????? 01/07
-//    public ResponseEntity<byte[]> testStaticAccess() {
-//        try {
-//            Resource resource = new ClassPathResource("static/html/chart.html");
-//            byte[] fileBytes = Files.readAllBytes(Paths.get(resource.getURI()));
-//
-////            // Проверка содержимого (для отладки)
-////            String contentCheck = new String(fileBytes, StandardCharsets.UTF_8);
-////            System.out.println("Первые 100 символов файла: " + contentCheck.substring(0, Math.min(100, contentCheck.length())));
-//
-//            return ResponseEntity.ok()
-//                    .contentType(MediaType.TEXT_HTML)
-//                    .header("Content-Type", "text/html;charset=UTF-8")
-////                    .header("X-Served-By", "8080") // Явное указание порта в заголовке
-//                    .body(fileBytes);
-//        } catch (Exception e) {
-//            // Возвращаем ошибку тоже в виде байтов с UTF-8
-//            String errorMessage = "Ошибка доступа к файлу22: " + e.getMessage();
-//            return ResponseEntity.status(500)
-//                    .contentType(MediaType.TEXT_HTML)
-//                    .body(errorMessage.getBytes(StandardCharsets.UTF_8));
-//        }
-//    }
-
 
     @GetMapping(value = "/chart", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<byte[]> testStaticAccess() {
@@ -90,15 +56,6 @@ public class ChartController {
                     .body(errorMessage.getBytes(StandardCharsets.UTF_8));
         }
     }
-
-
-
-
-//    @GetMapping("/chart-data")
-////    @CrossOrigin     // (origins = "http://localhost:8080") // Укажите адрес фронтенда  ЧТО БЫ ГЛОБАЛЬНАЯ НАСТРОЙКА РАБОТАЛА??????
-//    @ResponseBody
-//    public ResponseEntity<?> getChartData(HttpServletRequest request) {
-
 
     @GetMapping("/chart-data")
     @ResponseBody
@@ -145,11 +102,9 @@ public class ChartController {
         }
     }
 
-
-
 //
 //
-//// В МОЛОНИТЕ РАБОТАЕТ ЭТОТ КОД!!!!!!!
+//// В МОНОЛИТЕ РАБОТАЕТ ЭТОТ КОД!!!!!!!
 //    @GetMapping("/chart-data")
 ////    @CrossOrigin     // (origins = "http://localhost:8080") // Укажите адрес фронтенда  ЧТО БЫ ГЛОБАЛЬНАЯ НАСТРОЙКА РАБОТАЛА??????
 //    @ResponseBody

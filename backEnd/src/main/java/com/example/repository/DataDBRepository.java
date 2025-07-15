@@ -8,14 +8,14 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-@Repository         // ???????????????????
+@Repository
 public interface DataDBRepository extends JpaRepository<Data, Long> {
-//    List<Data> findAllByOrderByDateAsc();
-
-    // Дополнительные методы при необходимости
-    List<Data> findByRiver(String river);
-
-    List<Data> findByGes(String ges);
+////    List<Data> findAllByOrderByDateAsc();
+//
+//    // Дополнительные методы при необходимости
+//    List<Data> findByRiver(String river);
+//
+//    List<Data> findByGes(String ges);
 
     @Query("SELECT DISTINCT d.river FROM Data d")
     List<String> findDistinctRiver();
@@ -23,14 +23,14 @@ public interface DataDBRepository extends JpaRepository<Data, Long> {
     @Query("SELECT DISTINCT d.ges FROM Data d")
     List<String> findDistinctGes();
 
-    List<Data> findByRiverOrderByDateAsc(String river);
-
-    List<Data> findByGesOrderByDateAsc(String ges);
-
-    List<Data> findAllByOrderByDateAsc();
-
-    // Вариант 1: Используя соглашение об именовании Spring Data JPA
-//     List<Data> findByRiverAndGesAndDateBetween(String river, String ges, Date startDate, Date endDate);
+//    List<Data> findByRiverOrderByDateAsc(String river);
+//
+//    List<Data> findByGesOrderByDateAsc(String ges);
+//
+//    List<Data> findAllByOrderByDateAsc();
+//
+//    // Вариант 1: Используя соглашение об именовании Spring Data JPA
+////     List<Data> findByRiverAndGesAndDateBetween(String river, String ges, Date startDate, Date endDate);
      List<Data> findByRiverAndGesAndDateBetween(String river, String ges, Date dateStart, Date dateFinish);
 
     // ИЛИ Вариант 2: С явным JPQL запросом (более гибкий вариант)

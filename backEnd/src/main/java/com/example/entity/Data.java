@@ -25,7 +25,6 @@ public class Data {
     @Column(name = "level", columnDefinition = "NUMERIC(10,2)")
     private float level;
 
-    // Конструкторы, геттеры и сеттеры
     public void Data() {
     }
 

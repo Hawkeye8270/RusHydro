@@ -18,14 +18,14 @@ import java.util.concurrent.TimeUnit;
 @EntityScan("com.example.entity")
 public class AppMVC {
 
-    private static final String DB_HOST = "db"; // из вашего connection.url
-    private static final String DB_PORT = "5432"; // стандартный порт PostgreSQL
+    private static final String DB_HOST = "db";
+    private static final String DB_PORT = "5432";
     private static final String DB_USER = "postgres";
     private static final String DB_PASSWORD = "123";
     private static final String DB_NAME = "rushydro";
     private static final String SAVE_PATH = "/app/dumps/"; // путь внутри контейнера
     private static final int DUMP_INTERVAL_HOURS = 1;
-//    private static final int DUMP_INTERVAL_MINUTES = 2;   // Интервал в минутах
+//    private static final int DUMP_INTERVAL_MINUTES = 2;   // Интервал
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(AppMVC.class, args);
@@ -55,8 +55,6 @@ public class AppMVC {
                 0, // начальная задержка
                 DUMP_INTERVAL_HOURS,
                 TimeUnit.HOURS
-//                DUMP_INTERVAL_MINUTES,
-//                TimeUnit.MINUTES
         );
     }
 }
