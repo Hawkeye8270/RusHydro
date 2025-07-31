@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 public class CurretnGesAndRiver {
 
     private String river = "Волга";
-    private String station = "Нижегородская";
+    private String station = "Саратовская";
 
     public String getRiver() {
         return river;
