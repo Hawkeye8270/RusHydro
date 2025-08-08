@@ -2,6 +2,7 @@ package com.example.service;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
@@ -9,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class PostgresDumpService {
 
@@ -52,6 +55,40 @@ public class PostgresDumpService {
         executeCommand(pgDumpCommand);
 
         System.out.println("Dump successfully created at: " + dumpPath);
+
+        deletePreviousDump(dumpPath);
+    }
+
+    private void deletePreviousDump(Path currentDumpPath) throws IOException {
+        File dumpDir = new File(savePath);
+        if (!dumpDir.exists() || !dumpDir.isDirectory()) {
+            return;
+        }
+
+        // Получаем все файлы .sql в директории, кроме только что созданного
+        File[] dumpFiles = dumpDir.listFiles((dir, name) ->
+                name.startsWith("postgres_dump_") &&
+                        name.endsWith(".sql") &&
+                        !name.equals(currentDumpPath.getFileName().toString())
+        );
+
+        if (dumpFiles == null || dumpFiles.length == 0) {
+            return; // Нет файлов для удаления
+        }
+
+        // Сортируем файлы по дате изменения (от старых к новым)
+        Arrays.sort(dumpFiles, Comparator.comparingLong(File::lastModified));
+
+        // Удаляем все старые файлы
+        for (File oldDump : dumpFiles) {
+            try {
+                Files.delete(oldDump.toPath());
+                System.out.println("Deleted old dump file: " + oldDump.getName());
+            } catch (IOException e) {
+                System.err.println("Failed to delete old dump file: " +
+                        oldDump.getName() + ": " + e.getMessage());
+            }
+        }
     }
 
     private void executeCommand(String[] command) throws IOException, InterruptedException {

@@ -11,9 +11,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-
 // !!!!!!!!!!!!!!!! ЗАДАЧИ, КОТОРЫЕ НУЖНЫ ДЛЯ FRONTEND !!!!!!!!!!!!!
-
 
 @Controller
 @RequestMapping("/")
