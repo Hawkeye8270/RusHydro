@@ -24,20 +24,6 @@ public class AppConfig {
         return view;
     }
 
-//    private Properties hibernateProperties() {
-//        Properties properties = new Properties();
-//        properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-//        properties.put(Environment.DRIVER, "com.p6spy.engine.spy.P6SpyDriver");
-//        properties.put(Environment.HBM2DDL_AUTO, "validate");
-//
-//        properties.put(Environment.SHOW_SQL, "true");
-//        properties.put(Environment.FORMAT_SQL, "true");
-//        properties.put(Environment.USE_SQL_COMMENTS, "true");
-//        properties.put(Environment.JDBC_TIME_ZONE, "UTC");
-//
-//        return properties;
-//    }
-
 //    //  РАБОТАЕТ БЕЗ DOCKER
     @Bean
     public DataSource dataSource() {
