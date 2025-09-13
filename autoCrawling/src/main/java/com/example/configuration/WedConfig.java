@@ -30,5 +30,4 @@ public class WedConfig implements WebMvcConfigurer, ApplicationContextAware {
         registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
         registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
     }
-
 }

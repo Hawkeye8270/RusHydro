@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 public class ChartDataDto {
-    private Date date; // timestamp
+    private Date date;
     private float level;
 
     public ChartDataDto(Date date, float level) {
@@ -27,5 +27,4 @@ public class ChartDataDto {
     public void setLevel(float level) {
         this.level = level;
     }
-
 }

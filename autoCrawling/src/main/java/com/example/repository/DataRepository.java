@@ -14,12 +14,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 
-// !!!!!!!!!!!  МЕТОДЫ ДЛЯ РАБОТЫ С БД !!!!!!!!!!!!!!!!!!
 
 @Repository
 @Slf4j
 public class DataRepository {
-
 
     public static void createNewData(String river, String ges, Map<Date, Float> mapOfDate) {
 
@@ -72,18 +70,16 @@ public class DataRepository {
                     "d.ges = :ges AND " +
                     "d.date = :date";
 
-            // Выполняем запрос и получаем результат
             Long count = session.createQuery(hql, Long.class)
                     .setParameter("river", river)
                     .setParameter("ges", ges)
                     .setParameter("date", date)
                     .uniqueResult();
 
-            // Если count > 0, значит запись уже существует
             return count != null && count > 0;
         } catch (Exception e) {
             e.printStackTrace();
-            return false; // В случае ошибки считаем, что записи нет
+            return false;
         }
     }
 }

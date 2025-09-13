@@ -10,7 +10,6 @@ public class CrawlerParams {
     private String ges;
     private LocalDate date;
 
-    // конструкторы, геттеры и сеттеры
     public CrawlerParams() {}
 
     public CrawlerParams(String river, String ges, LocalDate date) {

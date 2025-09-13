@@ -8,7 +8,6 @@ public  class RequestData {
     private String ges;
     private String date;
 
-    // Геттеры и сеттеры обязательны!
     public String getRiver() { return river; }
     public void setRiver(String river) { this.river = river; }
     public String getGes() { return ges; }
@@ -38,8 +37,6 @@ public  class RequestData {
         String day = parts[2];
         return day;
     }
-
-
 }
 
 

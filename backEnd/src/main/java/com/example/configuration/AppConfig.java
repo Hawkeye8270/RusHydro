@@ -24,7 +24,6 @@ public class AppConfig {
         return view;
     }
 
-//    //  РАБОТАЕТ БЕЗ DOCKER
     @Bean
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();

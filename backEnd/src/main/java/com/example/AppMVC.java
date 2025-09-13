@@ -11,8 +11,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-
-//@EnableScheduling         // АВТОСБОРЩИК ДЛЯ БД
 @EnableJpaRepositories
 @SpringBootApplication
 @EntityScan("com.example.entity")
@@ -30,7 +28,6 @@ public class AppMVC {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(AppMVC.class, args);
 
-        // Инициализация dumper
         PostgresDumpService dumper = new PostgresDumpService(
                 DB_HOST,
                 DB_PORT,
@@ -40,7 +37,6 @@ public class AppMVC {
                 SAVE_PATH
         );
 
-        // Настройка периодического выполнения
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(
                 () -> {

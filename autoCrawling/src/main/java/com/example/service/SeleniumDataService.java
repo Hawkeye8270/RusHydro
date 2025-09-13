@@ -21,7 +21,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 @Slf4j
 public class SeleniumDataService {
@@ -42,21 +41,17 @@ public class SeleniumDataService {
 
     public boolean start(boolean headlessMode) {
         try {
-            // Настройка ChromeOptions
             if (headlessMode) {
                 chromeOptions.addArguments("--headless=new");
             }
 
-            // Конфигурация клиента с таймаутами
             ClientConfig clientConfig = ClientConfig.defaultConfig()
                     .readTimeout(Duration.ofSeconds(90))
                     .connectionTimeout(Duration.ofSeconds(30));
 
-            // Инициализация драйвера
             driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), chromeOptions);
             wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
 
-            // Проверка работоспособности
             driver.get("about:blank");
             log.info("WebDriver successfully started. Session ID: {}", driver.getSessionId());
             return true;
@@ -65,7 +60,7 @@ public class SeleniumDataService {
             log.error("Invalid Selenium Hub URL: {}", SELENIUM_HUB_URL, e);
         } catch (Exception e) {
             log.error("WebDriver initialization failed", e);
-            stop(); // Гарантированное освобождение ресурсов
+            stop();
         }
         return false;
     }
@@ -73,7 +68,6 @@ public class SeleniumDataService {
     public boolean openPage(String url) {
         try {
             driver.get(url);
-//            remoteWebDriver.get(url);
             log.info("Open page: {}", url);
         } catch (Exception ex) {
             log.error("open page problem: {}", ex.getMessage());
@@ -95,7 +89,6 @@ public class SeleniumDataService {
     public void click(WebElement webElem) throws InterruptedException {
         Thread.sleep(500);
         ((JavascriptExecutor) driver).executeScript(
-//        ((JavascriptExecutor) remoteWebDriver).executeScript(
                 "arguments[0].scrollIntoView({block: 'center'}); arguments[0].click();", webElem);
     }
 

@@ -66,7 +66,6 @@ public class AutoStartCrowlingService {
             DataRepository.createNewData(river, ges, collectionDataFromGes(ges, river, year));
 
             seleniumDS.waitSomeTime(2000);
-//            seleniumDS.stop();
 
         } catch (Exception ex) {
             ex.getMessage();

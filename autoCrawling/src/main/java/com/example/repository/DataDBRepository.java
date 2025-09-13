@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface DataDBRepository extends JpaRepository<Data, Long> {
 
-
-    // Дополнительные методы при необходимости
     List<Data> findByRiver(String river);
 
     List<Data> findByGes(String ges);

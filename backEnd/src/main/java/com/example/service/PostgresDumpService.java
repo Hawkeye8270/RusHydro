@@ -38,10 +38,8 @@ public class PostgresDumpService {
         String dumpFileName = "postgres_dump_" + timestamp + ".sql";
         Path dumpPath = Paths.get(savePath, dumpFileName);
 
-        // Создаем директорию, если не существует
         Files.createDirectories(dumpPath.getParent());
 
-        // Формируем команду pg_dump
         String[] pgDumpCommand = {
                 "pg_dump",
                 "-h", dbHost,
@@ -51,7 +49,6 @@ public class PostgresDumpService {
                 "-f", dumpPath.toString()
         };
 
-        // Выполняем команду
         executeCommand(pgDumpCommand);
 
         System.out.println("Dump successfully created at: " + dumpPath);
@@ -65,7 +62,6 @@ public class PostgresDumpService {
             return;
         }
 
-        // Получаем все файлы .sql в директории, кроме только что созданного
         File[] dumpFiles = dumpDir.listFiles((dir, name) ->
                 name.startsWith("postgres_dump_") &&
                         name.endsWith(".sql") &&
@@ -73,13 +69,11 @@ public class PostgresDumpService {
         );
 
         if (dumpFiles == null || dumpFiles.length == 0) {
-            return; // Нет файлов для удаления
+            return;
         }
 
-        // Сортируем файлы по дате изменения (от старых к новым)
         Arrays.sort(dumpFiles, Comparator.comparingLong(File::lastModified));
 
-        // Удаляем все старые файлы
         for (File oldDump : dumpFiles) {
             try {
                 Files.delete(oldDump.toPath());
@@ -94,15 +88,12 @@ public class PostgresDumpService {
     private void executeCommand(String[] command) throws IOException, InterruptedException {
         ProcessBuilder pb = new ProcessBuilder(command);
 
-        // Устанавливаем переменные окружения
         pb.environment().put("PGPASSWORD", dbPassword);
 
-        // Перенаправляем stderr в stdout для удобства отладки
         pb.redirectErrorStream(true);
 
         Process process = pb.start();
 
-        // Читаем вывод команды (для отладки)
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(process.getInputStream()))) {
             String line;
@@ -116,5 +107,4 @@ public class PostgresDumpService {
             throw new RuntimeException("pg_dump failed with exit code: " + exitCode);
         }
     }
-
 }

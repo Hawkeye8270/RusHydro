@@ -35,7 +35,6 @@ public class Data {
         this.level = level;
     }
 
-    // Геттеры и сеттеры
     public Long getId() {
         return id;
     }
@@ -75,7 +74,6 @@ public class Data {
     public void setLevel(float level) {
         this.level = level;
     }
-
 }
 
 
