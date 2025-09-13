@@ -1,4 +1,3 @@
-// Функция для декодирования URL-параметров
 function getUrlParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -9,7 +8,6 @@ function getUrlParams() {
     };
 }
 
-// Отображаем параметры на странице
 document.addEventListener('DOMContentLoaded', () => {
     const params = getUrlParams();
 
@@ -19,12 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('dateFinish').textContent = params.dateFinish || 'Не указано';
 });
 
-// Глобальные переменные
 let waterLevelChart = null;
 const statusEl = document.getElementById('status');
 const errorEl = document.getElementById('error');
 
-// Форматирование даты
 function formatDateTime(date) {
     return new Date(date).toLocaleString('ru-RU', {
         day: '2-digit',
@@ -36,7 +32,6 @@ function formatDateTime(date) {
     });
 }
 
-// Обновление статуса
 function updateStatus(message, isError = false) {
     statusEl.textContent = message;
     if (isError) {
@@ -47,7 +42,6 @@ function updateStatus(message, isError = false) {
     errorEl.style.display = 'none';
 }
 
-// Показать ошибку
 function showError(message) {
     errorEl.textContent = message;
     errorEl.style.display = 'block';
@@ -80,14 +74,6 @@ async function fetchData() {
         if (params.dateStart) queryParams.append('dateStart', params.dateStart);
         if (params.dateFinish) queryParams.append('dateFinish', params.dateFinish);
 
-        // РАБОТАЕТ БЕЗ DOCKER
-        // const response = await fetch(`/chart-data?${queryParams.toString()}`, {
-        //     headers: {
-        //         'Accept': 'application/json'
-        //     }
-        // });
-
-        // Явно укажите полный URL (для Docker используйте имя сервиса)
         const response = await fetch(`http://localhost:8081/chart-data?${queryParams.toString()}`, {
             mode: 'cors', // Явно указываем режим CORS
             headers: {
@@ -121,18 +107,14 @@ function renderChart(data) {
     const ctx = document.getElementById('waterLevelChart').getContext('2d');
     const params = getUrlParams();
 
-    // Определяем диапазон дат
     const startDate = params.dateStart ? new Date(params.dateStart) : new Date();
     const endDate = params.dateFinish ? new Date(params.dateFinish) : new Date();
 
-    // Корректируем время
     startDate.setHours(0, 0, 0, 0);
     endDate.setHours(23, 59, 59, 999);
 
-    // Генерируем полный диапазон дат
     const allDates = generateDateRange(startDate, endDate);
 
-    // Создаем карту существующих данных
     const dataMap = {};
     if (Array.isArray(data)) {
         data.forEach(item => {
@@ -142,7 +124,6 @@ function renderChart(data) {
         });
     }
 
-    // Формируем данные для графика
     const chartDataPoints = allDates.map(date => {
         const dateStr = date.toISOString().split('T')[0];
         return {
@@ -160,14 +141,13 @@ function renderChart(data) {
             borderWidth: 2,
             tension: 0.2,
             pointRadius: function (context) {
-                // Всегда показываем точки, даже для нулевых значений
                 return 4;
             },
             pointHoverRadius: 6,
             pointBackgroundColor: '#4285f4',
             pointBorderColor: '#fff',
             fill: true,
-            spanGaps: true // Разрешаем разрывы в данных
+            spanGaps: true
         }]
     };
 
@@ -240,7 +220,6 @@ function renderChart(data) {
                 grid: {
                     color: '#f1f1f1'
                 },
-                // Убедимся, что 0 всегда включен в шкалу
                 beginAtZero: true,
                 min: 0
             }
@@ -251,7 +230,6 @@ function renderChart(data) {
         },
         elements: {
             point: {
-                // Всегда показываем точки
                 radius: function (context) {
                     return context.datasetIndex === 0 ? 4 : 0;
                 },
@@ -275,7 +253,6 @@ function renderChart(data) {
     }
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
     fetchData();
 });

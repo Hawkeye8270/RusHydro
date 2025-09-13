@@ -33,27 +33,16 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!--        &lt;!&ndash; Selenium &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
-        <!--            <artifactId>selenium-java</artifactId>-->
-        <!--            <version>4.31.0</version>-->
-        <!--        </dependency>-->
 
         <!-- DBs -->
         <dependency>

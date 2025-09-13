@@ -22,7 +22,6 @@ public class WedConfig implements WebMvcConfigurer, ApplicationContextAware {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-//        registry.addViewController("/").setViewName("forward:/index.html");     //?????????????
     }
 
     @Override
@@ -33,5 +32,4 @@ public class WedConfig implements WebMvcConfigurer, ApplicationContextAware {
         registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
 
     }
-
 }
